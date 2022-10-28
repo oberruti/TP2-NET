@@ -19,23 +19,31 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
+        private Usuario _UsuarioActual;
+
+        public Usuario UsuarioActual { get => _UsuarioActual; set => _UsuarioActual = value; }
+
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             UsuarioLogic ul = new UsuarioLogic();
-            Usuario user = new Usuario();
-
             try
             {
-                user = ul.GetOne(this.txtUsuario.Text);
-                if (this.txtPass.Text == user.Clave && user.Habilitado)
+                if (ul.ValidarUser(txtUsuario.Text, txtPass.Text))
                 {
-                    this.DialogResult = DialogResult.OK;
-                    Menu menu = new Menu();
-                    menu.ShowDialog();
+                    UsuarioActual = ul.GetOneByNombreUsuario(txtUsuario.Text);
+                    if (UsuarioActual.Habilitado)
+                    {
+                        DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Usuario no está habilitado");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Usuario y/o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPass.Clear();
                 }
             }
             catch (Exception ex)
@@ -44,17 +52,6 @@ namespace UI.Desktop
                 Exception ExcepcionManejada = new Exception("Error al traer usuario", ex);
                 throw ExcepcionManejada;
             }
-
-            /*if (this.txtUsuario.Text == "Admin" && this.txtPass.Text == "Admin")
-            {
-                this.DialogResult = DialogResult.OK;
-                Menu menu = new Menu();
-                menu.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Usuario y/o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
         }
     }
 }

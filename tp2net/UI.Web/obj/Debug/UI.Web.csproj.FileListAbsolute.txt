@@ -1,0 +1,2 @@
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\UI.Web.csproj.AssemblyReference.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\UI.Web.csproj.CoreCompileInputs.cache

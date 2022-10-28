@@ -43,11 +43,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter.cs" />
-    <Compile Include="ComisionAdapter.cs" />
-    <Compile Include="CursoAdapter.cs" />
-    <Compile Include="MateriaAdapter.cs" />
-    <Compile Include="PlanAdapter.cs" />
-    <Compile Include="UsuarioAdapter.cs" />
+    <Compile Include="Adapters\AlumnoAdapter.cs" />
+    <Compile Include="Adapters\ComisionAdapter.cs" />
+    <Compile Include="Adapters\CursoAdapter.cs" />
+    <Compile Include="Adapters\DocenteCursoAdapter.cs" />
+    <Compile Include="Adapters\EspecialidadAdapter.cs" />
+    <Compile Include="Adapters\MateriaAdapter.cs" />
+    <Compile Include="Adapters\PersonaAdapter.cs" />
+    <Compile Include="Adapters\PlanAdapter.cs" />
+    <Compile Include="Adapters\UsuarioAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -178,5 +178,10 @@
       <Name>Business.Logic</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ABMListados\" />
+    <Folder Include="DesktopForms\" />
+    <Folder Include="FormsPrincipales\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

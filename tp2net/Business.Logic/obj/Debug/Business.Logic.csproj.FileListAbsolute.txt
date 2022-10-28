@@ -9,3 +9,7 @@ C:\Users\Albo\Desktop\.net\asdasd\tp2net\Business.Logic\obj\Debug\Business.Logic
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\Business.Logic\obj\Debug\Business.Logic.dll
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\Business.Logic\obj\Debug\Business.Logic.pdb
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\Business.Logic\obj\Debug\Business.Logic.csproj.AssemblyReference.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Logic\obj\Debug\Business.Logic.csproj.AssemblyReference.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Logic\obj\Debug\Business.Logic.csproj.CoreCompileInputs.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Logic\obj\Debug\Business.Logic.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Logic\obj\Debug\Business.Logic.pdb
