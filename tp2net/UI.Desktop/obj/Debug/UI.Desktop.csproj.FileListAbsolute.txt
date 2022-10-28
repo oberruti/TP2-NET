@@ -24,6 +24,15 @@ C:\Users\Albo\Desktop\.net\asdasd\tp2net\UI.Desktop\obj\Debug\UI.Desktop.exe
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\UI.Desktop\obj\Debug\UI.Desktop.pdb
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\UI.Desktop\obj\Debug\UI.Desktop.csproj.AssemblyReference.cache
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\UI.Desktop\obj\Debug\UI.Desktop.Login.resources
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\UI.Desktop.exe.config
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\UI.Desktop.exe
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\UI.Desktop.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Business.Entities.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Business.Logic.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Data.Database.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Business.Entities.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Business.Logic.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Data.Database.pdb
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.csproj.AssemblyReference.cache
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.ComisionDesktop.resources
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.Comisiones.resources
@@ -35,8 +44,14 @@ D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.De
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.Materias.resources
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.UsuarioDesktop.resources
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.Usuarios.resources
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.MenuAlumno.resources
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.Properties.Resources.resources
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.csproj.GenerateResource.cache
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.csproj.CoreCompileInputs.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.csproj.CopyComplete
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.exe
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.MenuAdmin.resources
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.MenuDocente.resources
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.Planes.resources
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.PlanDesktop.resources

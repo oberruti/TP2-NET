@@ -6,7 +6,6 @@ C:\Users\Albo\Desktop\.net\asdasd\tp2net\Business.Entities\obj\Debug\Business.En
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\Business.Entities\obj\Debug\Business.Entities.pdb
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Entities\bin\Debug\Business.Entities.dll
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Entities\bin\Debug\Business.Entities.pdb
-D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Entities\obj\Debug\Business.Entities.csproj.AssemblyReference.cache
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Entities\obj\Debug\Business.Entities.csproj.CoreCompileInputs.cache
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Entities\obj\Debug\Business.Entities.dll
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Business.Entities\obj\Debug\Business.Entities.pdb

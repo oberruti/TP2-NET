@@ -8,7 +8,7 @@ using Data.Database;
 
 namespace Business.Logic
 {
-    class PlanLogic : BusinessLogic
+    public class PlanLogic : BusinessLogic
     {
 
         private PlanAdapter _PlanData;

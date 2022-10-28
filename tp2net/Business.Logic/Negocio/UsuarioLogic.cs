@@ -41,5 +41,9 @@ namespace Business.Logic
             return UsuarioData.GetOneByNombreUsuario(username);
         }
 
+        public int BuscarTipoPersona(int id) {
+            return UsuarioData.BuscarTipoPersona(id);
+        }
+
     }
 }

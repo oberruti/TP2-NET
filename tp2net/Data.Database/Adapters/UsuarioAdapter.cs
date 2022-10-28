@@ -295,5 +295,44 @@ namespace Data.Database
 
             return user;
         }
+
+        public int BuscarTipoPersona(int id)
+        {
+            Usuario user = new Usuario();
+            PersonaAdapter perAdap = new PersonaAdapter();
+            Persona per = new Persona();
+            int tipoUsuario = 0;
+
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios usu " +
+                    "inner join personas per on per.id_persona = usu.id_persona " +
+                    " where usu.id_usuario = @id", SqlConn);
+                cmdUsuarios.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+
+                if (drUsuarios.Read())
+                {
+                    tipoUsuario = (int)drUsuarios["tipo_persona"];
+                    /*if (!String.IsNullOrEmpty(drUsuarios["id_persona"].ToString()))
+                    {
+                        tipoUsuario = (int)perAdap.GetOne((int)drUsuarios["id_persona"]).TipoPersona;
+                    }*/
+                }
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar lista de usuarios", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return tipoUsuario;
+        }
     }
 }

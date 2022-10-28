@@ -7,7 +7,12 @@ C:\Users\Albo\Desktop\.net\asdasd\tp2net\Data.Database\obj\Debug\Data.Database.c
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\Data.Database\obj\Debug\Data.Database.dll
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\Data.Database\obj\Debug\Data.Database.pdb
 C:\Users\Albo\Desktop\.net\asdasd\tp2net\Data.Database\obj\Debug\Data.Database.csproj.AssemblyReference.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\bin\Debug\Data.Database.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\bin\Debug\Data.Database.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\bin\Debug\Business.Entities.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\bin\Debug\Business.Entities.pdb
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\obj\Debug\Data.Database.csproj.AssemblyReference.cache
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\obj\Debug\Data.Database.csproj.CoreCompileInputs.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\obj\Debug\Data.Database.csproj.CopyComplete
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\obj\Debug\Data.Database.dll
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\Data.Database\obj\Debug\Data.Database.pdb

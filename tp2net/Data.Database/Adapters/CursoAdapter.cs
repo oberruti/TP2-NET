@@ -27,8 +27,8 @@ namespace Data.Database
                     cur.ID = (int)drCursos["id_curso"];
                     cur.Año_calendario = (int)drCursos["anio_calendario"];
                     cur.Cupo = (int)drCursos["cupo"];
-                    cur.Id_comision = (int)drCursos["id_comision"];
-                    cur.Id_materia = (int)drCursos["id_materia"];
+                    cur.IDComision = (int)drCursos["id_comision"];
+                    cur.IDMateria = (int)drCursos["id_materia"];
 
 
                     cursos.Add(cur);
@@ -63,8 +63,8 @@ namespace Data.Database
                     cur.ID = (int)drCursos["id_curso"];
                     cur.Año_calendario = (int)drCursos["anio_calendario"];
                     cur.Cupo = (int)drCursos["cupo"];
-                    cur.Id_comision = (int)drCursos["id_comision"];
-                    cur.Id_materia = (int)drCursos["id_materia"];
+                    cur.IDComision = (int)drCursos["id_comision"];
+                    cur.IDMateria = (int)drCursos["id_materia"];
 
                 }
                 drCursos.Close();
@@ -112,8 +112,8 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = curso.ID;
                 cmdSave.Parameters.Add("@anio_calendario", SqlDbType.VarChar, 50).Value = curso.Año_calendario;
                 cmdSave.Parameters.Add("@cupo", SqlDbType.VarChar, 50).Value = curso.Cupo;
-                cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.Id_materia;
-                cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.Id_comision;
+                cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.IDMateria;
+                cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.IDComision;
 
 
                 cmdSave.ExecuteNonQuery();
@@ -141,8 +141,8 @@ namespace Data.Database
                     "SELECT @@identity", SqlConn);
                 cmdSave.Parameters.Add("@anio_calendario", SqlDbType.VarChar, 50).Value = curso.Año_calendario;
                 cmdSave.Parameters.Add("@cupo", SqlDbType.VarChar, 50).Value = curso.Cupo;
-                cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.Id_materia;
-                cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.Id_comision;
+                cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.IDMateria;
+                cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.IDComision;
 
                 curso.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
            
