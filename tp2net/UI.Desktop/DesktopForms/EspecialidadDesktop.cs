@@ -12,33 +12,35 @@ using Business.Entities;
 
 namespace UI.Desktop
 {
-    public partial class PlanDesktop : ApplicationForm
+    public partial class EspecialidadDesktop : ApplicationForm
     {
-        private Plan planActual;
-        protected Plan PlanActual { get => planActual; set => planActual = value; }
-        public PlanDesktop()
+
+        private Especialidad _EspecialidadActual;
+        protected Especialidad EspecialidadActual { get => _EspecialidadActual; set => _EspecialidadActual = value; }
+
+        public EspecialidadDesktop()
         {
             InitializeComponent();
         }
-
-        public PlanDesktop(ModoForm modo) : this()
+        public EspecialidadDesktop(ModoForm modo) : this()
         {
             Modo = modo;
+            MapearDeDatos();
         }
 
-        public PlanDesktop(int ID, ModoForm modo) : this()
+        public EspecialidadDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
-            PlanLogic pl = new PlanLogic();
-            PlanActual = pl.GetOne(ID);
+            EspecialidadLogic el = new EspecialidadLogic();
+            EspecialidadActual = el.GetOne(ID);
             MapearDeDatos();
         }
 
         public override void MapearDeDatos()
         {
 
-            this.txtID.Text = this.PlanActual.ID.ToString();
-            this.txtDescripcion.Text = this.PlanActual.Descripcion;
+            //this.txtID.Text = this.EspecialidadActual.ID.ToString();
+            this.txtDescripcion.Text = this.EspecialidadActual.Descripcion;
 
             switch (this.Modo)
             {
@@ -54,6 +56,7 @@ namespace UI.Desktop
                 case ModoForm.Consulta:
                     this.btnAceptar.Text = "Aceptar";
                     break;
+
             }
         }
 
@@ -63,30 +66,28 @@ namespace UI.Desktop
             {
                 if (this.Modo == ModoForm.Alta)
                 {
-                    Plan plan = new Plan();
-                    PlanActual = plan;
-                    this.PlanActual.State = BusinessEntity.States.New;
+                    Especialidad es = new Especialidad();
+                    EspecialidadActual = es;
+                    this.EspecialidadActual.State = BusinessEntity.States.New;
                 }
-                else this.PlanActual.State = BusinessEntity.States.Modified;
+                else this.EspecialidadActual.State = BusinessEntity.States.Modified;
 
-                this.PlanActual.Descripcion = this.txtDescripcion.Text;
-                this.PlanActual.IDEspecialidad = Int32.Parse("");//Modificar
+                this.EspecialidadActual.Descripcion = this.txtDescripcion.Text;
             }
-            else if (this.Modo == ModoForm.Baja) this.PlanActual.State = BusinessEntity.States.Deleted;
-            else this.PlanActual.State = BusinessEntity.States.Unmodified;
+            else if (this.Modo == ModoForm.Baja) this.EspecialidadActual.State = BusinessEntity.States.Deleted;
+            else this.EspecialidadActual.State = BusinessEntity.States.Unmodified;
         }
 
         public override void GuardarCambios()
         {
             MapearADatos();
-            PlanLogic pl = new PlanLogic();
-            pl.Save(this.PlanActual);
+            EspecialidadLogic el = new EspecialidadLogic();
+            el.Save(this.EspecialidadActual);
         }
 
         public override bool Validar()
         {
             if (
-                (this.txtID.Text == "") ||
                 (this.txtDescripcion.Text == "")
                 )
             {
@@ -94,6 +95,17 @@ namespace UI.Desktop
                 return false;
             }
             else return true;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (Validar()) GuardarCambios();
+            Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
