@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Logic;
+using Business.Entities;
 
 namespace UI.Desktop
 {
@@ -17,8 +18,8 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Planes());
-            /*
+            //Application.Run(new Planes());
+            
             Login login = new Login();
             UsuarioLogic ul = new UsuarioLogic();
 
@@ -27,16 +28,16 @@ namespace UI.Desktop
                 int tipoPersona = ul.BuscarTipoPersona(login.UsuarioActual.ID);
                 switch (tipoPersona)
                 {
-                    case 1: Application.Run(new MenuAdmin(login.UsuarioActual)); break;
-                    case 2: Application.Run(new MenuDocente(login.UsuarioActual)); break;
-                    case 3: Application.Run(new MenuAlumno(login.UsuarioActual)); break;
+                    case (int)TiposPersonas.Admin: Application.Run(new MenuAdmin(login.UsuarioActual)); break;
+                    case (int)TiposPersonas.Docente: Application.Run(new MenuDocente(login.UsuarioActual)); break;
+                    case (int)TiposPersonas.Alumno: Application.Run(new MenuAlumno(login.UsuarioActual)); break;
                     default: break;
                 }
             }
             else
             {
                 Application.Exit();
-            }*/
+            }
 
         }
     }

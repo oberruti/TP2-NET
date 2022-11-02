@@ -28,11 +28,12 @@ namespace Business.Entities
         public string Telefono { get => _Telefono; set => _Telefono = value; }
         public TiposPersonas TipoPersona { get => _TipoPersona; set => _TipoPersona = value; }
 
-        public enum TiposPersonas
-        {
-            Admin,
-            Docente,
-            Alumno
-        }
+        
+    }
+    public enum TiposPersonas
+    {
+        Admin = 1,
+        Docente = 2,
+        Alumno = 3
     }
 }
