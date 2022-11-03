@@ -42,13 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Negocio\AlumnoLogic.cs" />
     <Compile Include="BusinessLogic.cs" />
-    <Compile Include="ComisionLogic.cs" />
-    <Compile Include="CursoLogic.cs" />
-    <Compile Include="MateriaLogic.cs" />
-    <Compile Include="PlanLogic.cs" />
+    <Compile Include="Negocio\ComisionLogic.cs" />
+    <Compile Include="Negocio\CursoLogic.cs" />
+    <Compile Include="Negocio\DocenteCursoLogic.cs" />
+    <Compile Include="Negocio\EspecialidadLogic.cs" />
+    <Compile Include="Negocio\MateriaLogic.cs" />
+    <Compile Include="Negocio\PlanLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioLogic.cs" />
+    <Compile Include="Negocio\UsuarioLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
