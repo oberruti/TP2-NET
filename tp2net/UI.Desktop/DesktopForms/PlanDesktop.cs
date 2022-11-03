@@ -19,6 +19,12 @@ namespace UI.Desktop
         public PlanDesktop()
         {
             InitializeComponent();
+            InicializarComboBox();
+        }
+        private void InicializarComboBox()
+        {
+            cmbIDEspecialidad.DisplayMember = "descripcion";
+            cmbIDEspecialidad.DataSource = new EspecialidadLogic().GetAll();
         }
 
         public PlanDesktop(ModoForm modo) : this()
@@ -28,7 +34,7 @@ namespace UI.Desktop
 
         public PlanDesktop(int ID, ModoForm modo) : this()
         {
-            Modo = modo;
+            this.Modo = modo;
             PlanLogic pl = new PlanLogic();
             PlanActual = pl.GetOne(ID);
             MapearDeDatos();
@@ -36,9 +42,9 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
-
             this.txtID.Text = this.PlanActual.ID.ToString();
             this.txtDescripcion.Text = this.PlanActual.Descripcion;
+            this.cmbIDEspecialidad.SelectedIndex = new EspecialidadLogic().GetIndex(PlanActual.IDEspecialidad);
 
             switch (this.Modo)
             {
@@ -57,23 +63,37 @@ namespace UI.Desktop
             }
         }
 
-        public override void MapearADatos()
+        public virtual void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
+            Especialidad especialidadActual = GetEspecialidad();
+            switch (this.Modo)
             {
-                if (this.Modo == ModoForm.Alta)
-                {
-                    Plan plan = new Plan();
-                    PlanActual = plan;
-                    this.PlanActual.State = BusinessEntity.States.New;
-                }
-                else this.PlanActual.State = BusinessEntity.States.Modified;
-
-                this.PlanActual.Descripcion = this.txtDescripcion.Text;
-                this.PlanActual.IDEspecialidad = Int32.Parse("");//Modificar
+                case (ModoForm.Alta):
+                    {
+                        PlanActual = new Plan();
+                        this.PlanActual.Descripcion = this.txtDescripcion.Text;
+                        this.PlanActual.IDEspecialidad = especialidadActual.ID;
+                        this.PlanActual.State = BusinessEntity.States.New;
+                        break;
+                    }
+                case (ModoForm.Modificacion):
+                    {
+                        this.PlanActual.Descripcion = this.txtDescripcion.Text;
+                        this.PlanActual.IDEspecialidad = especialidadActual.ID;
+                        this.PlanActual.State = BusinessEntity.States.Modified;
+                        break;
+                    }
+                case (ModoForm.Baja):
+                    {
+                        this.PlanActual.State = BusinessEntity.States.Deleted;
+                        break;
+                    }
+                case (ModoForm.Consulta):
+                    {
+                        this.PlanActual.State = BusinessEntity.States.Unmodified;
+                        break;
+                    }
             }
-            else if (this.Modo == ModoForm.Baja) this.PlanActual.State = BusinessEntity.States.Deleted;
-            else this.PlanActual.State = BusinessEntity.States.Unmodified;
         }
 
         public override void GuardarCambios()
@@ -82,11 +102,9 @@ namespace UI.Desktop
             PlanLogic pl = new PlanLogic();
             pl.Save(this.PlanActual);
         }
-
         public override bool Validar()
         {
             if (
-                (this.txtID.Text == "") ||
                 (this.txtDescripcion.Text == "")
                 )
             {
@@ -94,6 +112,24 @@ namespace UI.Desktop
                 return false;
             }
             else return true;
+        }
+        private Especialidad GetEspecialidad()
+        {
+            return new EspecialidadLogic().GetOne(((Business.Entities.Especialidad)this.cmbIDEspecialidad.SelectedValue).ID); ;
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                GuardarCambios();
+                Close();
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

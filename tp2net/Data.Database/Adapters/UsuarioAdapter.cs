@@ -35,6 +35,7 @@ namespace Data.Database
                     usr.Email = (string)drUsuarios["email"];
                     usr.Clave = (string)drUsuarios["clave"];
 
+
                     usuarios.Add(usr);
                 }
 

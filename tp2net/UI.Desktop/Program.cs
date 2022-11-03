@@ -18,9 +18,9 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Planes());
+            Application.Run(new PersonaDesktop());
             
-            Login login = new Login();
+            /*Login login = new Login();
             UsuarioLogic ul = new UsuarioLogic();
 
             if (login.ShowDialog() == DialogResult.OK)
@@ -37,7 +37,7 @@ namespace UI.Desktop
             else
             {
                 Application.Exit();
-            }
+            }*/
 
         }
     }

@@ -25,12 +25,12 @@ namespace UI.Desktop
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            UsuarioLogic ul = new UsuarioLogic();
-            try
+            PersonaLogic pl = new PersonaLogic();
+            /*try
             {
-                if (ul.ValidarUser(txtUsuario.Text, txtPass.Text))
+                if (pl.ValidarUser(txtUsuario.Text, txtPass.Text))
                 {
-                    UsuarioActual = ul.GetOneByNombreUsuario(txtUsuario.Text);
+                    UsuarioActual = pl.GetOneByNombreUsuario(txtUsuario.Text);
                     if (UsuarioActual.Habilitado)
                     {
                         DialogResult = DialogResult.OK;
@@ -51,7 +51,7 @@ namespace UI.Desktop
                 MessageBox.Show("Usuario y/o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Exception ExcepcionManejada = new Exception("Error al traer usuario", ex);
                 throw ExcepcionManejada;
-            }
+            }*/
         }
     }
 }

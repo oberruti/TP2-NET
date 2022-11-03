@@ -36,7 +36,7 @@ namespace UI.Desktop
             // lblBienvenida
             // 
             this.lblBienvenida.AutoSize = true;
-            this.lblBienvenida.Location = new System.Drawing.Point(308, 71);
+            this.lblBienvenida.Location = new System.Drawing.Point(319, 81);
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(101, 13);
             this.lblBienvenida.TabIndex = 0;

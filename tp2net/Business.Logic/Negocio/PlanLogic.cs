@@ -30,5 +30,20 @@ namespace Business.Logic
 
         public void Delete(int id) { PlanData.Delete(id); }
 
+        public int GetIndex(int id)
+        {
+            List<Plan> planes = PlanData.GetAll();
+            int i = 0;
+            foreach (Plan pl in planes)
+            {
+                if (pl.ID == id)
+                {
+                    break;
+                }
+                ++i;
+            }
+            return i;
+        }
+
     }
 }

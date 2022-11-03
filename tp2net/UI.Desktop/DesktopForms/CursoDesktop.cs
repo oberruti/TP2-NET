@@ -23,6 +23,14 @@ namespace UI.Desktop
         public CursoDesktop()
         {
             InitializeComponent();
+            InicializarComboBox();
+        }
+        private void InicializarComboBox()
+        {
+            cmbIDComision.DisplayMember = "desc_comision";
+            cmbIDComision.DataSource = new ComisionLogic().GetAll();
+            cmbIDMateria.DisplayMember = "descripcion";
+            cmbIDMateria.DataSource = new MateriaLogic().GetAll();
         }
 
         public CursoDesktop(ModoForm modo) : this()
@@ -39,11 +47,20 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
+            Materia materiaActual = GetMateria();
+            Comision comisionActual = GetComision();
             this.txtID.Text = this.CursoActual.ID.ToString();
             this.txtAño_calendario.Text = this.CursoActual.Año_calendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
-            this.txtID_Materia.Text = this.CursoActual.IDMateria.ToString();
-            this.txtID_Comision.Text = this.CursoActual.IDComision.ToString();
+            if (this.CursoActual.Descripcion != null)
+            {
+                this.txtDescripcion.Text = this.CursoActual.Descripcion.ToString();
+            }
+            else {
+                this.txtDescripcion.Text = "holi";
+            }
+            this.cmbIDMateria.SelectedIndex = new MateriaLogic().GetIndex(this.CursoActual.IDMateria);
+            this.cmbIDComision.SelectedIndex = new ComisionLogic().GetIndex(this.CursoActual.IDComision);
 
             switch (this.Modo)
             {
@@ -62,27 +79,44 @@ namespace UI.Desktop
             }
         }
 
-        public override void MapearADatos()
+        public virtual void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
+            Materia materia = GetMateria();
+            Comision comision = GetComision();
+            switch (this.Modo)
             {
-                if (this.Modo == ModoForm.Alta)
-                {
-                    Curso cur = new Curso();
-                    CursoActual = cur;
-                    this.CursoActual.State = BusinessEntity.States.New;
-                }
-                else this.CursoActual.State = BusinessEntity.States.Modified;
-
-
-                this.CursoActual.Año_calendario = Int32.Parse(this.txtAño_calendario.Text); //Int32.Parse(this.txtAño_calendario.Text);
-                this.CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
-                this.CursoActual.IDMateria = Int32.Parse(this.txtID_Materia.Text);
-                this.CursoActual.IDComision = Int32.Parse(this.txtID_Comision.Text);
-
+                case (ModoForm.Alta):
+                    {
+                        CursoActual = new Curso();
+                        this.CursoActual.Descripcion = this.txtDescripcion.Text;
+                        this.CursoActual.Año_calendario = Int32.Parse(this.txtAño_calendario.Text);
+                        this.CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
+                        this.CursoActual.IDComision = comision.ID;
+                        this.CursoActual.IDMateria = materia.ID;
+                        this.CursoActual.State = BusinessEntity.States.New;
+                        break;
+                    }
+                case (ModoForm.Modificacion):
+                    {
+                        this.CursoActual.Descripcion = this.txtDescripcion.Text;
+                        this.CursoActual.Año_calendario = Int32.Parse(this.txtAño_calendario.Text);
+                        this.CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
+                        this.CursoActual.IDComision = comision.ID;
+                        this.CursoActual.IDMateria = materia.ID;
+                        this.CursoActual.State = BusinessEntity.States.Modified;
+                        break;
+                    }
+                case (ModoForm.Baja):
+                    {
+                        this.CursoActual.State = BusinessEntity.States.Deleted;
+                        break;
+                    }
+                case (ModoForm.Consulta):
+                    {
+                        this.CursoActual.State = BusinessEntity.States.Unmodified;
+                        break;
+                    }
             }
-            else if (this.Modo == ModoForm.Baja) this.CursoActual.State = BusinessEntity.States.Deleted;
-            else this.CursoActual.State = BusinessEntity.States.Unmodified;
         }
 
         public override void GuardarCambios()
@@ -105,11 +139,11 @@ namespace UI.Desktop
         public override bool Validar()
         {
             if (
-                (this.txtID.Text == "") ||
-                (this.txtID_Comision.Text == "") ||
-                (this.txtID_Materia.Text == "") ||
-                (this.año.Text == "") ||
-                (this.cupolabel.Text == "")
+                (this.txtAño_calendario.Text == "") ||
+                (this.txtCupo.Text == "") ||
+                (this.txtDescripcion.Text == "") ||
+                (this.cmbIDComision == null) ||
+                (this.cmbIDMateria == null)
                 )
             {
                 this.Notificar("Atención", "Datos incorrectos.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -142,6 +176,15 @@ namespace UI.Desktop
         {
             Close();
 
+        }
+
+        private Materia GetMateria()
+        {
+            return new MateriaLogic().GetOne(((Materia)this.cmbIDMateria.SelectedValue).ID); ;
+        }
+        private Comision GetComision()
+        {
+            return new ComisionLogic().GetOne(((Comision)this.cmbIDComision.SelectedValue).ID); ;
         }
     }
 }

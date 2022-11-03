@@ -28,7 +28,7 @@ namespace Data.Database
                     Plan plan = new Plan();
 
                     plan.ID = (int)drPlanes["id_plan"];
-                    plan.Descripcion = (string)drPlanes["plan"];
+                    plan.Descripcion = (string)drPlanes["desc_plan"];
                     plan.IDEspecialidad = (int)drPlanes["id_especialidad"];
                     
                     planes.Add(plan);
@@ -64,7 +64,7 @@ namespace Data.Database
                 while (drPlanes.Read())
                 {
                     plan.ID = (int)drPlanes["id_plan"];
-                    plan.Descripcion = (string)drPlanes["plan"];
+                    plan.Descripcion = (string)drPlanes["desc_plan"];
                     plan.IDEspecialidad = (int)drPlanes["id_especialidad"];
                 }
 

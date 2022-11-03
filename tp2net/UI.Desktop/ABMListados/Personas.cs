@@ -12,9 +12,9 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Profesores : ApplicationForm
+    public partial class Personas : ApplicationForm
     {
-        public Profesores()
+        public Personas()
         {
             InitializeComponent();
             this.dgvUsuarios.AutoGenerateColumns = false;
@@ -22,7 +22,7 @@ namespace UI.Desktop
 
         public void Listar()
         {
-            UsuarioLogic ul = new UsuarioLogic();
+            PersonaLogic ul = new PersonaLogic();
             this.dgvUsuarios.DataSource = ul.GetAll();
         }
 
@@ -43,7 +43,7 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            UsuarioDesktop ud = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
+            PersonaDesktop ud = new PersonaDesktop(ApplicationForm.ModoForm.Alta);
             ud.ShowDialog();
             Listar();
         }
@@ -53,7 +53,7 @@ namespace UI.Desktop
             if (this.dgvUsuarios.SelectedRows.Count > 0)
             {
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop ud = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                PersonaDesktop ud = new PersonaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 ud.ShowDialog();
                 Listar();
             }
@@ -65,7 +65,7 @@ namespace UI.Desktop
             if (this.dgvUsuarios.SelectedRows.Count > 0)
             {
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop ud = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
+                PersonaDesktop ud = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
                 ud.ShowDialog();
                 Listar();
             }

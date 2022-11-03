@@ -56,14 +56,14 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdPlanes = new SqlCommand("select * from planes where id_plan=@id", SqlConn);
-                cmdPlanes.Parameters.Add("@id", SqlDbType.Int).Value = ID;
-                SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
+                SqlCommand cmdEspecialidad = new SqlCommand("select * from especialidades where id_especialidad=@id", SqlConn);
+                cmdEspecialidad.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+                SqlDataReader drPlanes = cmdEspecialidad.ExecuteReader();
 
                 while (drPlanes.Read())
                 {
                     especialidad.ID = (int)drPlanes["id_especialidad"];
-                    especialidad.Descripcion = (string)drPlanes["plan"];
+                    especialidad.Descripcion = (string)drPlanes["desc_especialidad"];
                 }
 
                 drPlanes.Close();

@@ -14,6 +14,7 @@ namespace UI.Desktop
 {
     public partial class ComisionDesktop : ApplicationForm
     {
+
         protected Comision _ComisionActual;
         public Comision ComisionActual
         {
@@ -23,12 +24,18 @@ namespace UI.Desktop
         public ComisionDesktop()
         {
             InitializeComponent();
+            InitializeComboBox();
+        }
+
+        private void InitializeComboBox()
+        {
+            cmbIDPlan.DisplayMember = "descripcion";
+            cmbIDPlan.DataSource = new PlanLogic().GetAll();
         }
 
         public ComisionDesktop(ModoForm modo) : this()
         {
             Modo = modo;
-            MapearDeDatos();
         }
 
         public ComisionDesktop(int ID, ModoForm modo) : this()
@@ -41,10 +48,11 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
+            Plan planActual = GetPlan();
             this.txtID.Text = this.ComisionActual.ID.ToString();
             this.txtDescripcion.Text = this.ComisionActual.Desc_comision;
             this.txtAnioEspecialidad.Text = this.ComisionActual.Anio_especialidad.ToString();
-            this.txtId_Plan.Text = this.ComisionActual.IDPlan.ToString();
+            this.cmbIDPlan.SelectedIndex = new PlanLogic().GetIndex(ComisionActual.IDPlan);
 
             switch (this.Modo)
             {
@@ -63,24 +71,43 @@ namespace UI.Desktop
             }
         }
 
-        public override void MapearADatos()
+        public virtual void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
+            Business.Entities.Plan planActual = this.DevolverPlan();
+            switch (this.Modo)
             {
-                if (this.Modo == ModoForm.Alta)
-                {
-                    Comision com = new Comision();
-                    ComisionActual = com;
-                    this.ComisionActual.State = BusinessEntity.States.New;
-                }
-                else this.ComisionActual.State = BusinessEntity.States.Modified;
-
-                this.ComisionActual.Desc_comision = this.txtDescripcion.Text;
-                this.ComisionActual.Anio_especialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
-                this.ComisionActual.IDPlan = Int32.Parse(this.txtId_Plan.Text);
+                case (ModoForm.Alta):
+                    {
+                        ComisionActual = new Comision();
+                        this.ComisionActual.Desc_comision = this.txtDescripcion.Text;
+                        this.ComisionActual.IDPlan = planActual.ID;
+                        this.ComisionActual.Anio_especialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
+                        this.ComisionActual.State = BusinessEntity.States.New;
+                        break;
+                    }
+                case (ModoForm.Modificacion):
+                    {
+                        this.ComisionActual.Desc_comision = this.txtDescripcion.Text;
+                        this.ComisionActual.IDPlan = planActual.ID;
+                        this.ComisionActual.Anio_especialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
+                        this.ComisionActual.State = BusinessEntity.States.Modified;
+                        break;
+                    }
+                case (ModoForm.Baja):
+                    {
+                        this.ComisionActual.State = BusinessEntity.States.Deleted;
+                        break;
+                    }
+                case (ModoForm.Consulta):
+                    {
+                        this.ComisionActual.State = BusinessEntity.States.Unmodified;
+                        break;
+                    }
             }
-            else if (this.Modo == ModoForm.Baja) this.ComisionActual.State = BusinessEntity.States.Deleted;
-            else this.ComisionActual.State = BusinessEntity.States.Unmodified;
+        }
+        private Plan DevolverPlan()
+        {
+            return new PlanLogic().GetOne(((Business.Entities.Plan)this.cmbIDPlan.SelectedValue).ID);
         }
 
         public override void GuardarCambios()
@@ -93,10 +120,9 @@ namespace UI.Desktop
         public override bool Validar()
         {
             if (
-                (this.txtID.Text == "") ||
                 (this.txtDescripcion.Text == "") ||
                 (this.txtAnioEspecialidad.Text == "") ||
-                (this.asd.Text == "")
+                (this.cmbIDPlan == null)
                 )
             {
                 this.Notificar("Atención", "Datos incorrectos.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -114,6 +140,10 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+        private Plan GetPlan()
+        {
+            return new PlanLogic().GetOne(((Plan)this.cmbIDPlan.SelectedValue).ID); ;
         }
     }
 }

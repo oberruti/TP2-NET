@@ -12,37 +12,54 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class UsuarioDesktop : ApplicationForm
+    public partial class PersonaDesktop : ApplicationForm
     {
-        public UsuarioDesktop()
+        public PersonaDesktop()
         {
             InitializeComponent();
+            InicializarComboBox();
         }
-        public Usuario UsuarioActual { get; set; }
+        private void InicializarComboBox()
+        {
+            List<TiposPersonas> tipos = new List<TiposPersonas>();
+            tipos.Add(TiposPersonas.Alumno);
+            tipos.Add(TiposPersonas.Docente);
+            cbmIDPlan.DisplayMember = "descripcion";
+            cbmIDPlan.DataSource = new PlanLogic().GetAll();
+            cbmIDTipoPersona.DataSource = tipos;
+        }
+        public Persona PersonaActual { get; set; }
 
-        public UsuarioDesktop(ModoForm modo) : this()
+        public PersonaDesktop(ModoForm modo) : this()
         {
             this.Modo = modo;
         }
 
-        public UsuarioDesktop(int ID, ModoForm modo) : this()
+        public PersonaDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
-            UsuarioLogic ul = new UsuarioLogic();
-            UsuarioActual = ul.GetOne(ID);
+            PersonaLogic ul = new PersonaLogic();
+            PersonaActual = ul.GetOne(ID);
             MapearDeDatos();
         }
 
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.UsuarioActual.ID.ToString();
-            this.chkHabilitado.Checked = this.UsuarioActual.Habilitado;
-            this.txtNombre.Text = this.UsuarioActual.Nombre;
-            this.txtEmail.Text = this.UsuarioActual.Email;
-            this.txtApellido.Text = this.UsuarioActual.Apellido;
-            this.txtClave.Text = this.UsuarioActual.Clave;
-            this.txtConfirmarClave.Text = this.UsuarioActual.Clave;
-            this.txtUsuario.Text = this.UsuarioActual.NombreUsuario;
+            Plan planActual = GetPlan();
+            this.txtID.Text = this.PersonaActual.ID.ToString();
+            this.chkHabilitado.Checked = this.PersonaActual.Habilitado;
+            this.txtNombre.Text = this.PersonaActual.Nombre;
+            this.txtEmail.Text = this.PersonaActual.Email;
+            this.txtApellido.Text = this.PersonaActual.Apellido;
+            this.txtClave.Text = this.PersonaActual.Clave;
+            this.txtConfirmarClave.Text = this.PersonaActual.Clave;
+            this.txtUsuario.Text = this.PersonaActual.NombreUsuario;
+            this.txtDireccion.Text = this.PersonaActual.Direccion;
+            this.dtpFechaNacimiento.Value = this.PersonaActual.FechaNacimiento;
+            this.txtLegajo.Text = this.PersonaActual.Legajo.ToString();
+            this.txtTelefono.Text = this.PersonaActual.Telefono;
+            this.cbmIDPlan.SelectedIndex = new PlanLogic().GetIndex(PersonaActual.IDPlan);
+            this.cbmIDTipoPersona.SelectedIndex = (int)this.PersonaActual.TipoPersona;
 
             switch (this.Modo)
             {
@@ -63,35 +80,33 @@ namespace UI.Desktop
 
         public override void MapearADatos()
         {
+            Plan planActual = GetPlan();
             if (Modo == ModoForm.Alta)
             {
-                UsuarioActual = new Usuario();
-                UsuarioActual.Nombre = this.txtNombre.Text;
-                UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-                UsuarioActual.Apellido = this.txtApellido.Text;
-                UsuarioActual.Clave = this.txtClave.Text;
-                UsuarioActual.Email = this.txtEmail.Text;
-                UsuarioActual.NombreUsuario = this.txtUsuario.Text;
+                PersonaActual = new Persona();
+                PersonaActual.Nombre = this.txtNombre.Text;
+                PersonaActual.Habilitado = this.chkHabilitado.Checked;
+                PersonaActual.Apellido = this.txtApellido.Text;
+                PersonaActual.Clave = this.txtClave.Text;
+                PersonaActual.Email = this.txtEmail.Text;
+                PersonaActual.NombreUsuario = this.txtUsuario.Text;
+                PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
+                PersonaActual.Telefono = this.txtTelefono.Text;
+                PersonaActual.Direccion = this.txtDireccion.Text;
+                PersonaActual.IDPlan = planActual.ID;
+                PersonaActual.TipoPersona = (TiposPersonas)this.cbmIDTipoPersona.SelectedIndex;
+                PersonaActual.State = BusinessEntity.States.New;
+                PersonaActual.FechaNacimiento = this.dtpFechaNacimiento.Value;
             }
 
             if (Modo == ModoForm.Modificacion)
             {
-                UsuarioActual.Nombre = this.txtNombre.Text;
-                UsuarioActual.Habilitado = this.chkHabilitado.Checked;
-                UsuarioActual.Apellido = this.txtApellido.Text;
-                UsuarioActual.Clave = this.txtClave.Text;
-                UsuarioActual.Email = this.txtEmail.Text;
-                UsuarioActual.NombreUsuario = this.txtUsuario.Text;
-            }
-
-            switch (Modo)
-            {
-                case ModoForm.Alta:
-                    UsuarioActual.State = BusinessEntity.States.New;
-                    break;
-                case ModoForm.Modificacion:
-                    UsuarioActual.State = BusinessEntity.States.Modified;
-                    break;
+                PersonaActual.Nombre = this.txtNombre.Text;
+                PersonaActual.Habilitado = this.chkHabilitado.Checked;
+                PersonaActual.Apellido = this.txtApellido.Text;
+                PersonaActual.Clave = this.txtClave.Text;
+                PersonaActual.Email = this.txtEmail.Text;
+                PersonaActual.NombreUsuario = this.txtUsuario.Text;
             }
         }
 
@@ -125,9 +140,9 @@ namespace UI.Desktop
 
         public override void GuardarCambios()
         {
-            UsuarioLogic ul = new UsuarioLogic();
+            PersonaLogic ul = new PersonaLogic();
             MapearADatos();
-            ul.Save(UsuarioActual);
+            ul.Save(PersonaActual);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -166,8 +181,12 @@ namespace UI.Desktop
 
         public virtual void Eliminar()
         {
-            UsuarioLogic ul = new UsuarioLogic();
-            ul.Delete(UsuarioActual.ID);
+            PersonaLogic ul = new PersonaLogic();
+            ul.Delete(PersonaActual.ID);
+        }
+        private Plan GetPlan()
+        {
+            return new PlanLogic().GetOne(((Plan)this.cbmIDPlan.SelectedValue).ID); ;
         }
     }
 }

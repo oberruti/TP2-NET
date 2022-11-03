@@ -25,7 +25,6 @@ namespace UI.Desktop
         public EspecialidadDesktop(ModoForm modo) : this()
         {
             Modo = modo;
-            MapearDeDatos();
         }
 
         public EspecialidadDesktop(int ID, ModoForm modo) : this()
@@ -38,8 +37,7 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
-
-            //this.txtID.Text = this.EspecialidadActual.ID.ToString();
+            this.txtID.Text = this.EspecialidadActual.ID.ToString();
             this.txtDescripcion.Text = this.EspecialidadActual.Descripcion;
 
             switch (this.Modo)
@@ -56,26 +54,36 @@ namespace UI.Desktop
                 case ModoForm.Consulta:
                     this.btnAceptar.Text = "Aceptar";
                     break;
-
             }
         }
-
-        public override void MapearADatos()
+        public virtual void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
+            switch (this.Modo)
             {
-                if (this.Modo == ModoForm.Alta)
-                {
-                    Especialidad es = new Especialidad();
-                    EspecialidadActual = es;
-                    this.EspecialidadActual.State = BusinessEntity.States.New;
-                }
-                else this.EspecialidadActual.State = BusinessEntity.States.Modified;
-
-                this.EspecialidadActual.Descripcion = this.txtDescripcion.Text;
+                case (ModoForm.Alta):
+                    {
+                        EspecialidadActual = new Especialidad();
+                        this.EspecialidadActual.Descripcion = this.txtDescripcion.Text;
+                        this.EspecialidadActual.State = BusinessEntity.States.New;
+                        break;
+                    }
+                case (ModoForm.Modificacion):
+                    {
+                        this.EspecialidadActual.Descripcion = this.txtDescripcion.Text;
+                        this.EspecialidadActual.State = BusinessEntity.States.Modified;
+                        break;
+                    }
+                case (ModoForm.Baja):
+                    {
+                        this.EspecialidadActual.State = BusinessEntity.States.Deleted;
+                        break;
+                    }
+                case (ModoForm.Consulta):
+                    {
+                        this.EspecialidadActual.State = BusinessEntity.States.Unmodified;
+                        break;
+                    }
             }
-            else if (this.Modo == ModoForm.Baja) this.EspecialidadActual.State = BusinessEntity.States.Deleted;
-            else this.EspecialidadActual.State = BusinessEntity.States.Unmodified;
         }
 
         public override void GuardarCambios()

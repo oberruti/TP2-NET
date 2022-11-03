@@ -34,6 +34,8 @@ namespace Data.Database
                     materias.Add(mat);
                 }
 
+                
+
                 drMaterias.Close();
             }
             catch (Exception Ex)
@@ -57,7 +59,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdMaterias = new SqlCommand("select * from usuarios where id_materia=@id", SqlConn);
+                SqlCommand cmdMaterias = new SqlCommand("select * from materias where id_materia=@id", SqlConn);
                 cmdMaterias.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
 

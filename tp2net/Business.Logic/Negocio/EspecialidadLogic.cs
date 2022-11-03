@@ -46,5 +46,20 @@ namespace Business.Logic
         {
             EspecialidadData.Save(esp);
         }
+
+        public int GetIndex(int id)
+        {
+            List<Especialidad> esp = EspecialidadData.GetAll();
+            int i = 0;
+            foreach (Business.Entities.Especialidad especialidad in esp)
+            {
+                if (especialidad.ID == id)
+                {
+                    break;
+                }
+                ++i;
+            }
+            return i;
+        }
     }
 }
