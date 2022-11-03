@@ -31,19 +31,13 @@ namespace Business.Logic
 
         public void Delete(int id) { PersonaData.Delete(id); }
 
-        /*public bool ValidarUser(string username, string pass)
+        public bool ValidarPersona(string username, string pass)
         {
-            return PersonaData.ValidarUser(username, pass);
+            return PersonaData.ValidarPersona(username, pass);
         }
 
-        public Usuario GetOneByNombreUsuario(string username)
-        {
-            return PersonaData.GetOneByNombreUsuario(username);
+        public Persona GetOneByNombreUsuario(string nombreUsuario) {
+            return PersonaData.GetOneByNombreUsuario(nombreUsuario);
         }
-
-        public int BuscarTipoPersona(int id) {
-            return PersonaData.BuscarTipoPersona(id);
-        }*/
-
     }
 }

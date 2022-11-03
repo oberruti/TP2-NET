@@ -19,19 +19,19 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
-        private Usuario _UsuarioActual;
+        private Persona _PersonaActual;
 
-        public Usuario UsuarioActual { get => _UsuarioActual; set => _UsuarioActual = value; }
+        public Persona PersonaActual { get => _PersonaActual; set => _PersonaActual = value; }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             PersonaLogic pl = new PersonaLogic();
-            /*try
+            try
             {
-                if (pl.ValidarUser(txtUsuario.Text, txtPass.Text))
+                if (pl.ValidarPersona(txtUsuario.Text, txtPass.Text))
                 {
-                    UsuarioActual = pl.GetOneByNombreUsuario(txtUsuario.Text);
-                    if (UsuarioActual.Habilitado)
+                    PersonaActual = pl.GetOneByNombreUsuario(txtUsuario.Text);
+                    if (PersonaActual.Habilitado)
                     {
                         DialogResult = DialogResult.OK;
                     }
@@ -51,7 +51,7 @@ namespace UI.Desktop
                 MessageBox.Show("Usuario y/o contraseña incorrectos", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Exception ExcepcionManejada = new Exception("Error al traer usuario", ex);
                 throw ExcepcionManejada;
-            }*/
+            }
         }
     }
 }

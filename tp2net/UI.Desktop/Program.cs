@@ -18,26 +18,26 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PersonaDesktop());
+            //Application.Run(new Personas());
             
-            /*Login login = new Login();
-            UsuarioLogic ul = new UsuarioLogic();
+            Login login = new Login();
+            PersonaLogic pl = new PersonaLogic();
 
             if (login.ShowDialog() == DialogResult.OK)
             {
-                int tipoPersona = ul.BuscarTipoPersona(login.UsuarioActual.ID);
-                switch (tipoPersona)
+                MessageBox.Show(login.PersonaActual.TipoPersona.ToString());
+                switch (login.PersonaActual.TipoPersona)
                 {
-                    case (int)TiposPersonas.Admin: Application.Run(new MenuAdmin(login.UsuarioActual)); break;
-                    case (int)TiposPersonas.Docente: Application.Run(new MenuDocente(login.UsuarioActual)); break;
-                    case (int)TiposPersonas.Alumno: Application.Run(new MenuAlumno(login.UsuarioActual)); break;
+                    case TiposPersonas.Admin: Application.Run(new MenuAdmin(login.PersonaActual)); break;
+                    case TiposPersonas.Docente: Application.Run(new MenuDocente(login.PersonaActual)); break;
+                    case TiposPersonas.Alumno: Application.Run(new MenuAlumno(login.PersonaActual)); break;
                     default: break;
                 }
             }
             else
             {
                 Application.Exit();
-            }*/
+            }
 
         }
     }

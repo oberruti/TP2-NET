@@ -59,7 +59,7 @@ namespace UI.Desktop
             this.txtLegajo.Text = this.PersonaActual.Legajo.ToString();
             this.txtTelefono.Text = this.PersonaActual.Telefono;
             this.cbmIDPlan.SelectedIndex = new PlanLogic().GetIndex(PersonaActual.IDPlan);
-            this.cbmIDTipoPersona.SelectedIndex = (int)this.PersonaActual.TipoPersona;
+            this.cbmIDTipoPersona.SelectedItem = (int)this.PersonaActual.TipoPersona;
 
             switch (this.Modo)
             {
@@ -81,32 +81,54 @@ namespace UI.Desktop
         public override void MapearADatos()
         {
             Plan planActual = GetPlan();
-            if (Modo == ModoForm.Alta)
+            switch (this.Modo)
             {
-                PersonaActual = new Persona();
-                PersonaActual.Nombre = this.txtNombre.Text;
-                PersonaActual.Habilitado = this.chkHabilitado.Checked;
-                PersonaActual.Apellido = this.txtApellido.Text;
-                PersonaActual.Clave = this.txtClave.Text;
-                PersonaActual.Email = this.txtEmail.Text;
-                PersonaActual.NombreUsuario = this.txtUsuario.Text;
-                PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
-                PersonaActual.Telefono = this.txtTelefono.Text;
-                PersonaActual.Direccion = this.txtDireccion.Text;
-                PersonaActual.IDPlan = planActual.ID;
-                PersonaActual.TipoPersona = (TiposPersonas)this.cbmIDTipoPersona.SelectedIndex;
-                PersonaActual.State = BusinessEntity.States.New;
-                PersonaActual.FechaNacimiento = this.dtpFechaNacimiento.Value;
-            }
+                case ModoForm.Alta:
+                    {
+                        PersonaActual = new Persona();
+                        PersonaActual.Nombre = this.txtNombre.Text;
+                        PersonaActual.Habilitado = this.chkHabilitado.Checked;
+                        PersonaActual.Apellido = this.txtApellido.Text;
+                        PersonaActual.Clave = this.txtClave.Text;
+                        PersonaActual.Email = this.txtEmail.Text;
+                        PersonaActual.NombreUsuario = this.txtUsuario.Text;
+                        PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
+                        PersonaActual.Telefono = this.txtTelefono.Text;
+                        PersonaActual.Direccion = this.txtDireccion.Text;
+                        PersonaActual.IDPlan = planActual.ID;
+                        PersonaActual.TipoPersona = (TiposPersonas)this.cbmIDTipoPersona.SelectedItem;
+                        PersonaActual.State = BusinessEntity.States.New;
+                        PersonaActual.FechaNacimiento = this.dtpFechaNacimiento.Value;
+                        break;
+                    }
 
-            if (Modo == ModoForm.Modificacion)
-            {
-                PersonaActual.Nombre = this.txtNombre.Text;
-                PersonaActual.Habilitado = this.chkHabilitado.Checked;
-                PersonaActual.Apellido = this.txtApellido.Text;
-                PersonaActual.Clave = this.txtClave.Text;
-                PersonaActual.Email = this.txtEmail.Text;
-                PersonaActual.NombreUsuario = this.txtUsuario.Text;
+                case (ModoForm.Modificacion):
+                    {
+                        PersonaActual.Nombre = this.txtNombre.Text;
+                        PersonaActual.Habilitado = this.chkHabilitado.Checked;
+                        PersonaActual.Apellido = this.txtApellido.Text;
+                        PersonaActual.Clave = this.txtClave.Text;
+                        PersonaActual.Email = this.txtEmail.Text;
+                        PersonaActual.NombreUsuario = this.txtUsuario.Text;
+                        PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
+                        PersonaActual.Telefono = this.txtTelefono.Text;
+                        PersonaActual.Direccion = this.txtDireccion.Text;
+                        PersonaActual.IDPlan = planActual.ID;
+                        PersonaActual.TipoPersona = (TiposPersonas)this.cbmIDTipoPersona.SelectedItem;
+                        PersonaActual.State = BusinessEntity.States.Modified;
+                        PersonaActual.FechaNacimiento = this.dtpFechaNacimiento.Value;
+                        break;
+                    }
+                case (ModoForm.Baja):
+                    {
+                        this.PersonaActual.State = BusinessEntity.States.Deleted;
+                        break;
+                    }
+                case (ModoForm.Consulta):
+                    {
+                        this.PersonaActual.State = BusinessEntity.States.Unmodified;
+                        break;
+                    }
             }
         }
 

@@ -14,7 +14,8 @@ namespace UI.Desktop
 {
     public partial class AlumnoInscripcionDesktop : ApplicationForm
     {
-        private AlumnoInscripcion _aluInscripcionActual;
+        /*private AlumnoInscripcion _aluInscripcionActual;
+        public AlumnoInscripcion AluInscripcionActual { get => _aluInscripcionActual; set => _aluInscripcionActual = value; }
 
         public AlumnoInscripcionDesktop()
         {
@@ -27,44 +28,25 @@ namespace UI.Desktop
         private void InicializarComboBox()
         {
             cmbIDAlumno.DisplayMember = "nombre";
-            //cmbIDAlumno.DataSource = new PersonaLogic().DevolverAlumnos();
-            //CargarCursos();
+            cmbIDAlumno.DataSource = new AlumnoLogic().GetAllAlumnos();
+            cmbIDCurso.DisplayMember = "descripcion";
+            cmbIDCurso.DataSource = new CursoLogic().GetAll();
         }
 
         public AlumnoInscripcionDesktop(ModoForm modo)
             : this()
         {
             this.Modo = modo;
-            AluInscripcionActual = new Business.Entities.AlumnoInscripcion();
+
         }
 
         public AlumnoInscripcionDesktop(int ID, ModoForm modo)
             : this()
         {
-            this.Modo = modo;
-            //AluInscripcionActual = new AlumnoInsLogic().GetOne(ID);
+            Modo = modo;
+            Alu cl = new ComisionLogic();
+            ComisionActual = cl.GetOne(ID);
             MapearDeDatos();
-            switch (modo)
-            {
-                case (ModoForm.Alta):
-                    this.btnAceptar.Text = "Guardar";
-                    break;
-                case (ModoForm.Modificacion):
-                    this.btnAceptar.Text = "Guardar";
-                    break;
-                case (ModoForm.Baja):
-                    this.btnAceptar.Text = "Eliminar";
-                    break;
-                case (ModoForm.Consulta):
-                    this.btnAceptar.Text = "Aceptar";
-                    break;
-            }
-        }
-
-        public AlumnoInscripcion AluInscripcionActual
-        {
-            get { return _aluInscripcionActual; }
-            set { _aluInscripcionActual = value; }
         }
 
         public virtual void MapearDeDatos()

@@ -35,7 +35,7 @@ namespace UI.Desktop
 
         public MateriaDesktop(ModoForm modo) : this()
         {
-            Modo = modo;
+            this.Modo = modo;
         }
 
         public MateriaDesktop(int ID, ModoForm modo) : this()
