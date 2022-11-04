@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Negocio\AlumnoLogic.cs" />
+    <Compile Include="Negocio\AlumnoInscripcionLogic.cs" />
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="Negocio\ComisionLogic.cs" />
     <Compile Include="Negocio\CursoLogic.cs" />

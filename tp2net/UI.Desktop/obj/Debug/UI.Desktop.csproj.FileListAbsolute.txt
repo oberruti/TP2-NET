@@ -58,3 +58,4 @@ D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.De
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.exe
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.pdb
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.Personas.resources
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.AlumnosInscripcionesLista.resources

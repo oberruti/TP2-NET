@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Data.Database
 {
-    public class AlumnoAdapter : Adapter
+    public class AlumnoInscripcionAdapter : Adapter
     {
 
         public List<AlumnoInscripcion> GetAll()
@@ -38,7 +38,7 @@ namespace Data.Database
             return alumnos;
         }
 
-        public Business.Entities.AlumnoInscripcion GetOne(int ID)
+        public AlumnoInscripcion GetOne(int ID)
         {
             AlumnoInscripcion alumno = new AlumnoInscripcion();
 
@@ -106,6 +106,12 @@ namespace Data.Database
             cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = alumno.Condicion;
             cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = alumno.Nota;
             alumno.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+
+            SqlCommand cmdUpdateCupo = new SqlCommand("UPDATE cursos SET cupo = cupo - 1 WHERE id_curso = @id_curso", SqlConn);
+
+            cmdUpdateCupo.Parameters.Add("id_curso", SqlDbType.Int).Value = alumno.IdCurso;
+
+            cmdUpdateCupo.ExecuteNonQuery();
 
             this.CloseConnection();
         }

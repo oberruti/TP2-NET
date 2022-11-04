@@ -18,14 +18,13 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Personas());
+            //Application.Run(new AlumnosInscripcionesLista());
             
             Login login = new Login();
             PersonaLogic pl = new PersonaLogic();
 
             if (login.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(login.PersonaActual.TipoPersona.ToString());
                 switch (login.PersonaActual.TipoPersona)
                 {
                     case TiposPersonas.Admin: Application.Run(new MenuAdmin(login.PersonaActual)); break;

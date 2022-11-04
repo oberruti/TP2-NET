@@ -20,13 +20,13 @@ namespace Business.Logic
         protected CursoAdapter _CursoData;
         public CursoAdapter CursoData
         {
-            get{ return _CursoData;}
-            set{ _CursoData = value;}
+            get { return _CursoData; }
+            set { _CursoData = value; }
         }
-        
+
         public Curso GetOne(int id)
         {
-             return CursoData.GetOne(id);
+            return CursoData.GetOne(id);
         }
 
         public List<Curso> GetAll()
@@ -42,6 +42,10 @@ namespace Business.Logic
         public void Save(Curso user)
         {
             CursoData.Save(user);
+        }
+        public List<Curso> GetAllCursosConCupos()
+        {
+            return CursoData.GetAllCursosConCupos();
         }
     }
 }

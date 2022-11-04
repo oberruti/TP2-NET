@@ -10,6 +10,7 @@ namespace Data.Database
 {
     public class CursoAdapter : Adapter
     {
+        
         public List<Curso> GetAll()
         {
             List<Curso> cursos = new List<Curso>();
@@ -45,7 +46,44 @@ namespace Data.Database
             return cursos;
         }
 
-        public Business.Entities.Curso GetOne(int ID)
+        public List<Curso> GetAllCursosConCupos()
+        {
+            List<Curso> cursos = new List<Curso>();
+            List<Curso> cursosSinRepetir = new List<Curso>();
+
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCurso = new SqlCommand("SELECT * FROM cursos c WHERE c.cupo > 0", SqlConn);
+                SqlDataReader drCursos = cmdCurso.ExecuteReader();
+
+                while (drCursos.Read())
+                {
+                    Curso cur = new Curso();
+
+                    cur.ID = (int)drCursos["id_curso"];
+                    cur.Año_calendario = (int)drCursos["anio_calendario"];
+                    cur.Descripcion = (string)drCursos["descripcion"];
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.IDComision = (int)drCursos["id_comision"];
+                    cur.IDMateria = (int)drCursos["id_materia"];
+
+                    cursos.Add(cur);
+                }
+                drCursos.Close();
+
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally { this.CloseConnection(); }
+
+            return cursos;
+        }
+
+        public Curso GetOne(int ID)
         {
             Curso cur = new Curso();
 
