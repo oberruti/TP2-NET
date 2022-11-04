@@ -32,5 +32,17 @@ namespace UI.Desktop
             AlumnosInscripcionesLista ail = new AlumnosInscripcionesLista(PersonaActual);
             ail.ShowDialog();
         }
+
+        private void btnReporteCursos_Click(object sender, EventArgs e)
+        {
+            ReporteCursos rc = new ReporteCursos();
+            rc.ShowDialog();
+        }
+
+        private void btnReportePlanes_Click(object sender, EventArgs e)
+        {
+            ReportePlanes rp = new ReportePlanes();
+            rp.ShowDialog();
+        }
     }
 }
