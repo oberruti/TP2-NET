@@ -84,7 +84,13 @@ namespace UI.Desktop
                     cursosAMostrar.Add(curso);
                 }
             }
-            cmbIDCurso.DataSource = cursosAMostrar;
+            if (cursosAMostrar.Count > 0) {
+                cmbIDCurso.DataSource = cursosAMostrar;
+                return;
+            }
+            this.Notificar("Atención", "No hay cursos con cupo.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Close();
+
         }
 
         public virtual AlumnoInscripcion MapearADatos()
