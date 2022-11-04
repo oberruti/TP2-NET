@@ -11,7 +11,7 @@ using Business.Entities;
 using Business.Logic;
 
 
-namespace UI.Desktop.ABMListados
+namespace UI.Desktop
 {
     public partial class Especialidades : ApplicationForm
     {
@@ -65,10 +65,17 @@ namespace UI.Desktop.ABMListados
         {
             if (this.dgvEspecialidades.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Materia)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
-                EspecialidadDesktop ed = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
-                ed.ShowDialog();
-                Listar();
+                try
+                {
+                    int ID = ((Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
+                    EspecialidadDesktop ed = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
+                    ed.ShowDialog();
+                    Listar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se puede eliminar esta especialidad ya que esta asociada a otra entidad");
+                }
             }
             else Notificar("Atención", "No se seleccionó ningún elemento.", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

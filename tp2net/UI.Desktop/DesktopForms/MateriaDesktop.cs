@@ -24,12 +24,18 @@ namespace UI.Desktop
         public MateriaDesktop()
         {
             InitializeComponent();
+            InicializarComboBox();
+        }
+
+        private void InicializarComboBox()
+        {
+            cmbIDPlan.DisplayMember = "descripcion";
+            cmbIDPlan.DataSource = new PlanLogic().GetAll();
         }
 
         public MateriaDesktop(ModoForm modo) : this()
         {
-            Modo = modo;
-            MapearDeDatos();
+            this.Modo = modo;
         }
 
         public MateriaDesktop(int ID, ModoForm modo) : this()
@@ -42,12 +48,12 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
-
+            Plan planActual = GetPlan();
             this.txtID.Text = this.MateriaActual.ID.ToString();
             this.txtDescripcion.Text = this.MateriaActual.Descripcion;
             this.txtHsSemanales.Text = this.MateriaActual.HSSemanales.ToString();
-            this.txtHsTotales.Text = this.MateriaActual.HSSemanales.ToString();
-            this.txtId_Plan.Text = this.MateriaActual.IDPlan.ToString();
+            this.txtHsTotales.Text = this.MateriaActual.HSTotales.ToString();
+            this.cmbIDPlan.SelectedIndex = new PlanLogic().GetIndex(MateriaActual.IDPlan);
 
             switch (this.Modo)
             {
@@ -65,26 +71,41 @@ namespace UI.Desktop
                     break;
             }
         }
-
-        public override void MapearADatos()
+        public virtual void MapearADatos()
         {
-            if (this.Modo == ModoForm.Alta || this.Modo == ModoForm.Modificacion)
+            Plan planActual = GetPlan();
+            switch (this.Modo)
             {
-                if (this.Modo == ModoForm.Alta)
-                {
-                    Materia mate = new Materia();
-                    MateriaActual = mate;
-                    this.MateriaActual.State = BusinessEntity.States.New;
-                }
-                else this.MateriaActual.State = BusinessEntity.States.Modified;
-
-                this.MateriaActual.Descripcion = this.txtDescripcion.Text;
-                this.MateriaActual.HSSemanales = Int32.Parse(this.txtHsSemanales.Text);
-                this.MateriaActual.HSTotales = Int32.Parse(this.txtHsTotales.Text);
-                this.MateriaActual.IDPlan = Int32.Parse(this.txtId_Plan.Text);
+                case (ModoForm.Alta):
+                    {
+                        MateriaActual = new Materia();
+                        this.MateriaActual.Descripcion = this.txtDescripcion.Text;
+                        this.MateriaActual.HSSemanales = Int32.Parse(this.txtHsSemanales.Text);
+                        this.MateriaActual.HSTotales = Int32.Parse(this.txtHsTotales.Text);
+                        this.MateriaActual.IDPlan = planActual.ID;
+                        this.MateriaActual.State = BusinessEntity.States.New;
+                        break;
+                    }
+                case (ModoForm.Modificacion):
+                    {
+                        this.MateriaActual.Descripcion = this.txtDescripcion.Text;
+                        this.MateriaActual.HSSemanales = Int32.Parse(this.txtHsSemanales.Text);
+                        this.MateriaActual.HSTotales = Int32.Parse(this.txtHsTotales.Text);
+                        this.MateriaActual.IDPlan = planActual.ID;
+                        this.MateriaActual.State = BusinessEntity.States.Modified;
+                        break;
+                    }
+                case (ModoForm.Baja):
+                    {
+                        this.MateriaActual.State = BusinessEntity.States.Deleted;
+                        break;
+                    }
+                case (ModoForm.Consulta):
+                    {
+                        this.MateriaActual.State = BusinessEntity.States.Unmodified;
+                        break;
+                    }
             }
-            else if (this.Modo == ModoForm.Baja) this.MateriaActual.State = BusinessEntity.States.Deleted;
-            else this.MateriaActual.State = BusinessEntity.States.Unmodified;
         }
 
         public override void GuardarCambios()
@@ -97,7 +118,6 @@ namespace UI.Desktop
         public override bool Validar()
         {
             if (
-                (this.txtID.Text == "") ||
                 (this.txtDescripcion.Text == "") ||
                 (this.txtHsSemanales.Text == "") ||
                 (this.txtHsTotales.Text == "")
@@ -123,6 +143,11 @@ namespace UI.Desktop
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private Plan GetPlan()
+        {
+            return new PlanLogic().GetOne(((Plan)this.cmbIDPlan.SelectedValue).ID); ;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace UI.Desktop
 {
     public partial class Planes : ApplicationForm
     {
+
         public Planes()
         {
             InitializeComponent();
@@ -23,7 +24,20 @@ namespace UI.Desktop
         public void Listar()
         {
             PlanLogic pl = new PlanLogic();
-            this.dgvPlans.DataSource = pl.GetAll();
+            EspecialidadLogic el = new EspecialidadLogic();
+            List<Plan> planes = pl.GetAll();
+            List<PlanConEspecialidad> planesconesp = new List<PlanConEspecialidad>();
+            foreach (Plan item in planes)
+            {
+                Especialidad esp = el.GetOne(item.IDEspecialidad);
+                PlanConEspecialidad pce = new PlanConEspecialidad();
+                pce.ID = item.ID;
+                pce.Descripcion = item.Descripcion;
+                pce.IDEspecialidad = item.IDEspecialidad;
+                pce.NombreEspecialidad = esp.Descripcion;
+                planesconesp.Add(pce);
+            }
+            this.dgvPlans.DataSource = planesconesp;
         }
 
         private void Planes_Load(object sender, EventArgs e)
@@ -64,12 +78,24 @@ namespace UI.Desktop
         {
             if (this.dgvPlans.SelectedRows.Count > 0)
             {
-                int ID = ((Business.Entities.Plan)this.dgvPlans.SelectedRows[0].DataBoundItem).ID;
-                PlanDesktop pd = new PlanDesktop(ID, ApplicationForm.ModoForm.Baja);
-                pd.ShowDialog();
-                Listar();
+                try
+                {
+                    int ID = ((Business.Entities.Plan)this.dgvPlans.SelectedRows[0].DataBoundItem).ID;
+                    PlanDesktop pd = new PlanDesktop(ID, ApplicationForm.ModoForm.Baja);
+                    pd.ShowDialog();
+                    Listar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se puede eliminar este plan ya que esta asociada a otra entidad");
+                }
             }
             else Notificar("Atención", "No se seleccionó ningún elemento.", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+    public class PlanConEspecialidad : Plan
+    {
+        private string _NombreEspecialidad;
+        public string NombreEspecialidad { get => _NombreEspecialidad; set => _NombreEspecialidad = value; }
     }
 }

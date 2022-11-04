@@ -34,8 +34,8 @@ namespace UI.Desktop
 
         private void btnMenuUsuarios_Click(object sender, EventArgs e)
         {
-            Usuarios ud = new Usuarios();
-            ud.ShowDialog();
+            Personas pd = new Personas();
+            pd.ShowDialog();
         }
 
         private void btnMenuCursos_Click(object sender, EventArgs e)

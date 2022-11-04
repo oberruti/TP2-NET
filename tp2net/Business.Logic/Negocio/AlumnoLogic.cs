@@ -13,34 +13,15 @@ namespace Business.Logic
     {
         public AlumnoLogic()
         {
-            this.AlumnoData = new AlumnoAdapter();
+            this.AlumnoData = new PersonaAdapter();
         }
 
-        private AlumnoAdapter _AlumnoData;
-        public AlumnoAdapter AlumnoData
-        {
-            get { return _AlumnoData; }
-            set { _AlumnoData = value; }
-        }
+        private PersonaAdapter _AlumnoData;
 
-        public List<AlumnoInscripcion> GetAll()
-        {
-            return this.AlumnoData.GetAll();
-        }
+        public PersonaAdapter AlumnoData { get => _AlumnoData; set => _AlumnoData = value; }
 
-        public Business.Entities.AlumnoInscripcion GetOne(int ID)
-        {
-            return this.AlumnoData.GetOne(ID);
-        }
-
-        public void Delete(int ID)
-        {
-            this.AlumnoData.Delete(ID);
-        }
-
-        public void Save(AlumnoInscripcion alumno)
-        {
-            this.AlumnoData.Save(alumno);
+        public List<Persona> GetAllAlumnos() {
+            return AlumnoData.GetAllAlumnos();
         }
     }
 }

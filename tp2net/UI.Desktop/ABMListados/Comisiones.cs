@@ -24,7 +24,21 @@ namespace UI.Desktop
         public void Listar()
         {
             ComisionLogic cl = new ComisionLogic();
-            this.dgvComisiones.DataSource = cl.GetAll();
+            PlanLogic pl = new PlanLogic();
+            List<Comision> comisiones = cl.GetAll();
+            List<ComisionConPlan> comisionesconplan = new List<ComisionConPlan>();
+            foreach (Comision item in comisiones)
+            {
+                Plan plan = pl.GetOne(item.IDPlan);
+                ComisionConPlan ccp = new ComisionConPlan();
+                ccp.ID = item.ID;
+                ccp.Desc_comision = item.Desc_comision;
+                ccp.Anio_especialidad = item.Anio_especialidad;
+                ccp.IDPlan = item.IDPlan;
+                ccp.NombrePlan = plan.Descripcion;
+                comisionesconplan.Add(ccp);
+            }
+            this.dgvComisiones.DataSource = comisionesconplan;
         }
 
         private void Comisiones_Load(object sender, EventArgs e)
@@ -63,14 +77,22 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvComisiones.SelectedRows.Count > 0)
+            try
             {
                 int ID = ((Business.Entities.Comision)this.dgvComisiones.SelectedRows[0].DataBoundItem).ID;
                 ComisionDesktop cd = new ComisionDesktop(ID, ApplicationForm.ModoForm.Baja);
                 cd.ShowDialog();
                 Listar();
             }
-            else Notificar("Atención", "No se seleccionó ningún elemento.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se puede eliminar esta especialidad ya que esta asociada a otra entidad");
+            }
         }
     }
- }
+    public class ComisionConPlan : Comision
+    {
+        private string _NombrePlan;
+        public string NombrePlan { get => _NombrePlan; set => _NombrePlan = value; }
+    }
+}

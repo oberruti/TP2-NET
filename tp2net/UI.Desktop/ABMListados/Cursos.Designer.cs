@@ -33,14 +33,18 @@ namespace UI.Desktop
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.tlCursos = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
-            this.Año_calendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsCursos = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Año_calendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -56,7 +60,6 @@ namespace UI.Desktop
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tlCursos);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 424);
-            this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
             this.toolStripContainer1.Location = new System.Drawing.Point(-2, 2);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(800, 449);
@@ -88,8 +91,12 @@ namespace UI.Desktop
             // 
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Año_calendario,
-            this.Cupo});
+            this.Cupo,
+            this.Descripcion,
+            this.Comision,
+            this.Materia});
             this.tlCursos.SetColumnSpan(this.dgvCursos, 2);
             this.dgvCursos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCursos.Location = new System.Drawing.Point(3, 3);
@@ -97,18 +104,6 @@ namespace UI.Desktop
             this.dgvCursos.Size = new System.Drawing.Size(794, 389);
             this.dgvCursos.TabIndex = 0;
             this.dgvCursos.Click += new System.EventHandler(this.dgvCursos_Click);
-            // 
-            // Año_calendario
-            // 
-            this.Año_calendario.DataPropertyName = "Año_calendario";
-            this.Año_calendario.HeaderText = "Año de Calendario";
-            this.Año_calendario.Name = "Año_calendario";
-            // 
-            // Cupo
-            // 
-            this.Cupo.DataPropertyName = "Cupo";
-            this.Cupo.HeaderText = "Cupo";
-            this.Cupo.Name = "Cupo";
             // 
             // btnActualizar
             // 
@@ -152,7 +147,7 @@ namespace UI.Desktop
             this.tsbNuevo.Size = new System.Drawing.Size(23, 22);
             this.tsbNuevo.Text = "toolStripButton1";
             this.tsbNuevo.ToolTipText = "Nuevo";
-            this.tsbNuevo.Click += new System.EventHandler(this.tsbNuevo_Click);
+            this.tsbNuevo.Click += new System.EventHandler(this.tbsNuevo_Click);
             // 
             // tsbEditar
             // 
@@ -162,7 +157,7 @@ namespace UI.Desktop
             this.tsbEditar.Name = "tsbEditar";
             this.tsbEditar.Size = new System.Drawing.Size(23, 22);
             this.tsbEditar.Text = "Editar";
-            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
+            this.tsbEditar.Click += new System.EventHandler(this.tbsEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -173,7 +168,44 @@ namespace UI.Desktop
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "toolStripButton1";
             this.tsbEliminar.ToolTipText = "Eliminar";
-            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            this.tsbEliminar.Click += new System.EventHandler(this.tbsEliminar_Click);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            // 
+            // Año_calendario
+            // 
+            this.Año_calendario.DataPropertyName = "Año_calendario";
+            this.Año_calendario.HeaderText = "Año de Calendario";
+            this.Año_calendario.Name = "Año_calendario";
+            this.Año_calendario.Width = 150;
+            // 
+            // Cupo
+            // 
+            this.Cupo.DataPropertyName = "Cupo";
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.Name = "Cupo";
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            // 
+            // Comision
+            // 
+            this.Comision.DataPropertyName = "NombreComision";
+            this.Comision.HeaderText = "Comision";
+            this.Comision.Name = "Comision";
+            // 
+            // Materia
+            // 
+            this.Materia.DataPropertyName = "NombreMateria";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.Name = "Materia";
             // 
             // Cursos
             // 
@@ -208,7 +240,11 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripButton tsbNuevo;
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Año_calendario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
     }
 }

@@ -51,7 +51,7 @@
     <Compile Include="Negocio\MateriaLogic.cs" />
     <Compile Include="Negocio\PlanLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Negocio\UsuarioLogic.cs" />
+    <Compile Include="Negocio\PersonaLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">

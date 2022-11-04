@@ -53,11 +53,11 @@
     <Compile Include="ABMListados\Especialidades.Designer.cs">
       <DependentUpon>Especialidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMListados\Profesores.cs">
+    <Compile Include="AlumnosInscripciones\AlumnoInscripcionDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMListados\Profesores.Designer.cs">
-      <DependentUpon>Profesores.cs</DependentUpon>
+    <Compile Include="AlumnosInscripciones\AlumnoInscripcionDesktop.Designer.cs">
+      <DependentUpon>AlumnoInscripcionDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
@@ -95,12 +95,6 @@
     <Compile Include="DesktopForms\EspecialidadDesktop.Designer.cs">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="DesktopForms\ProfesorDesktop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DesktopForms\ProfesorDesktop.Designer.cs">
-      <DependentUpon>ProfesorDesktop.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormsPrincipales\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,17 +119,17 @@
     <Compile Include="ABMListados\Materias.Designer.cs">
       <DependentUpon>Materias.cs</DependentUpon>
     </Compile>
-    <Compile Include="DesktopForms\UsuarioDesktop.cs">
+    <Compile Include="DesktopForms\PersonaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DesktopForms\UsuarioDesktop.Designer.cs">
-      <DependentUpon>UsuarioDesktop.cs</DependentUpon>
+    <Compile Include="DesktopForms\PersonaDesktop.Designer.cs">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABMListados\Usuarios.cs">
+    <Compile Include="ABMListados\Personas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABMListados\Usuarios.Designer.cs">
-      <DependentUpon>Usuarios.cs</DependentUpon>
+    <Compile Include="ABMListados\Personas.Designer.cs">
+      <DependentUpon>Personas.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsPrincipales\MenuAlumno.cs">
       <SubType>Form</SubType>
@@ -175,8 +169,8 @@
     <EmbeddedResource Include="ABMListados\Planes.resx">
       <DependentUpon>Planes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMListados\Profesores.resx">
-      <DependentUpon>Profesores.cs</DependentUpon>
+    <EmbeddedResource Include="AlumnosInscripciones\AlumnoInscripcionDesktop.resx">
+      <DependentUpon>AlumnoInscripcionDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DesktopForms\ComisionDesktop.resx">
       <DependentUpon>ComisionDesktop.cs</DependentUpon>
@@ -196,9 +190,6 @@
     <EmbeddedResource Include="DesktopForms\PlanDesktop.resx">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DesktopForms\ProfesorDesktop.resx">
-      <DependentUpon>ProfesorDesktop.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormsPrincipales\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,11 +202,11 @@
     <EmbeddedResource Include="ABMListados\Materias.resx">
       <DependentUpon>Materias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DesktopForms\UsuarioDesktop.resx">
-      <DependentUpon>UsuarioDesktop.cs</DependentUpon>
+    <EmbeddedResource Include="DesktopForms\PersonaDesktop.resx">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABMListados\Usuarios.resx">
-      <DependentUpon>Usuarios.cs</DependentUpon>
+    <EmbeddedResource Include="ABMListados\Personas.resx">
+      <DependentUpon>Personas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsPrincipales\MenuAdmin.resx">
       <DependentUpon>MenuAdmin.cs</DependentUpon>

@@ -44,5 +44,19 @@ namespace Business.Logic
         {
             MateriaData.Save(materia);
         }
+        public int GetIndex(int id)
+        {
+            List<Materia> materias = MateriaData.GetAll();
+            int i = 0;
+            foreach (Materia m in materias)
+            {
+                if (m.ID == id)
+                {
+                    break;
+                }
+                ++i;
+            }
+            return i;
+        }
     }
 }

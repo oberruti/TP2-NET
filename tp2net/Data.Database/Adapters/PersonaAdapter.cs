@@ -19,7 +19,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas", SqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("select * from personas p inner join usuarios u on u.id_persona=p.id_persona ", SqlConn);
 
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
 
@@ -36,11 +36,14 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
                     per.IDPlan = (int)drPersonas["id_plan"];
+                    per.Clave = (string)drPersonas["clave"];
+                    per.Habilitado = (bool)drPersonas["habilitado"];
+                    per.NombreUsuario = (string)drPersonas["nombre_usuario"];
 
-                    if ((int)drPersonas["tipo_persona"] == 0)
-                        per.TipoPersona = Persona.TiposPersonas.Alumno;
+                    if ((int)drPersonas["tipo_persona"] == (int)TiposPersonas.Alumno)
+                        per.TipoPersona = TiposPersonas.Alumno;
                     else
-                        per.TipoPersona = Persona.TiposPersonas.Docente;
+                        per.TipoPersona = TiposPersonas.Docente;
 
                     personas.Add(per);
                 }
@@ -71,14 +74,12 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas where id_persona=@id", SqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("select DISTINCT * from personas p inner join usuarios u on u.id_persona=p.id_persona where p.id_persona=@id", SqlConn);
                 cmdPersonas.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
 
                 if (drPersonas.Read())
                 {
-
-
                     per.ID = (int)drPersonas["id_persona"];
                     per.Nombre = (string)drPersonas["nombre"];
                     per.Apellido = (string)drPersonas["apellido"];
@@ -88,12 +89,14 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
                     per.IDPlan = (int)drPersonas["id_plan"];
+                    per.Clave = (string)drPersonas["clave"];
+                    per.Habilitado = (bool)drPersonas["habilitado"];
+                    per.NombreUsuario = (string)drPersonas["nombre_usuario"];
 
-                    if ((int)drPersonas["tipo_persona"] == 0)
-                        per.TipoPersona = Persona.TiposPersonas.Alumno;
+                    if ((int)drPersonas["tipo_persona"] == (int)TiposPersonas.Alumno)
+                        per.TipoPersona = TiposPersonas.Alumno;
                     else
-                        per.TipoPersona = Persona.TiposPersonas.Docente;
-
+                        per.TipoPersona = TiposPersonas.Docente;
                 }
 
                 drPersonas.Close();
@@ -120,10 +123,15 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdDelete = new SqlCommand("delete personas where id_persona=@id", SqlConn);
+                SqlCommand cmdDelete = new SqlCommand("delete usuarios where id_persona=@id", SqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
 
                 cmdDelete.ExecuteNonQuery();
+
+                SqlCommand cmdDeletePersona = new SqlCommand("delete personas where id_persona=@id", SqlConn);
+                cmdDeletePersona.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+
+                cmdDeletePersona.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
@@ -172,12 +180,25 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = persona.IDPlan;
 
-                if (persona.TipoPersona == Persona.TiposPersonas.Alumno)
-                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 0;
+                if (persona.TipoPersona == TiposPersonas.Alumno)
+                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 3;
                 else
-                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 1;
+                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 2;
 
                 cmdSave.ExecuteNonQuery();
+
+                SqlCommand cmdSaveUser = new SqlCommand("UPDATE usuarios set nombre=@nombre, apellido=@apellido, clave=@clave, email=@email, habilitado=@habilitado, nombre_usuario=@nombre_usuario WHERE id_persona=@id", SqlConn);
+
+                cmdSaveUser.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
+                cmdSaveUser.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
+                cmdSaveUser.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = persona.Email;
+                cmdSaveUser.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = persona.Clave;
+                cmdSaveUser.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = persona.NombreUsuario;
+                cmdSaveUser.Parameters.Add("@habilitado", SqlDbType.Bit).Value = persona.Habilitado;
+                cmdSaveUser.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
+
+
+                cmdSaveUser.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -197,7 +218,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO personas (nombre, apellido, email, direccion, telefono, fecha_nac, tipo_persona, id_plan) VALUES (@nombre, @apellido, @email, @direccion, @telefono, @fecha_nac, @tipo_persona, @id_plan) select @@identity", SqlConn);
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO personas (nombre, apellido, email, direccion, telefono, fecha_nac, tipo_persona, id_plan, legajo) VALUES (@nombre, @apellido, @email, @direccion, @telefono, @fecha_nac, @tipo_persona, @id_plan, @legajo) select @@identity", SqlConn);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
@@ -205,15 +226,42 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = persona.Email;
                 cmdSave.Parameters.Add("@direccion", SqlDbType.VarChar, 50).Value = persona.Direccion;
                 cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = persona.Telefono;
+                cmdSave.Parameters.Add("@legajo", SqlDbType.VarChar, 50).Value = persona.Legajo;
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = persona.IDPlan;
 
-                if (persona.TipoPersona == Persona.TiposPersonas.Alumno)
-                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 0;
+                if (persona.TipoPersona == TiposPersonas.Alumno)
+                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 3;
                 else
-                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 1;
+                    cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = 2;
 
                 persona.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al crear persona", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdSaveUser = new SqlCommand("INSERT INTO usuarios (nombre, apellido, email, clave, nombre_usuario, habilitado, id_persona) VALUES (@nombre, @apellido, @email, @clave, @nombre_usuario, @habilitado, @id_persona) select @@identity", SqlConn);
+
+                cmdSaveUser.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = persona.Nombre;
+                cmdSaveUser.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = persona.Apellido;
+                cmdSaveUser.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = persona.Email;
+                cmdSaveUser.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = persona.Clave;
+                cmdSaveUser.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = persona.NombreUsuario;
+                cmdSaveUser.Parameters.Add("@habilitado", SqlDbType.Bit).Value = persona.Habilitado;
+                cmdSaveUser.Parameters.Add("@id_persona", SqlDbType.Int).Value = persona.ID;
+                Decimal.ToInt32((decimal)cmdSaveUser.ExecuteScalar());
+
             }
             catch (Exception ex)
             {
@@ -235,7 +283,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas where tipo_persona=0", SqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("select * from personas p inner join usuarios u on u.id_persona = p.id_persona where tipo_persona=3", SqlConn);
 
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
 
@@ -252,7 +300,10 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
                     per.IDPlan = (int)drPersonas["id_plan"];
-                    per.TipoPersona = Persona.TiposPersonas.Alumno;
+                    per.Clave = (string)drPersonas["clave"];
+                    per.Habilitado = (bool)drPersonas["habilitado"];
+                    per.NombreUsuario = (string)drPersonas["nombre_usuario"];
+                    per.TipoPersona = TiposPersonas.Alumno;
 
                     personas.Add(per);
                 }
@@ -283,7 +334,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdPersonas = new SqlCommand("select * from personas where tipo_persona=1", SqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("select * from personas p inner join usuarios u on u.id_persona = p.id_persona where tipo_persona=2", SqlConn);
 
                 SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
 
@@ -300,7 +351,10 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
                     per.Legajo = (int)drPersonas["legajo"];
                     per.IDPlan = (int)drPersonas["id_plan"];
-                    per.TipoPersona = Persona.TiposPersonas.Docente;
+                    per.Clave = (string)drPersonas["clave"];
+                    per.Habilitado = (bool)drPersonas["habilitado"];
+                    per.NombreUsuario = (string)drPersonas["nombre_usuario"];
+                    per.TipoPersona = TiposPersonas.Alumno;
 
                     personas.Add(per);
                 }
@@ -322,6 +376,101 @@ namespace Data.Database
 
             return personas;
         }
+
+        public bool ValidarPersona(string username, string pass)
+        {
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios where nombre_usuario = @nomuser and clave = @clave", SqlConn);
+                cmdUsuarios.Parameters.Add("@nomuser", SqlDbType.VarChar).Value = username;
+                cmdUsuarios.Parameters.Add("@clave", SqlDbType.VarChar).Value = pass;
+
+                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+
+                if (drUsuarios.Read())
+                {
+                    drUsuarios.Close();
+                    return true;
+                }
+                else
+                {
+                    drUsuarios.Close();
+                    return false;
+                }
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+                    new Exception("Error al validar el usuario", Ex);
+
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+
+            }
+        }
+
+        public Persona GetOneByNombreUsuario(string username)
+        {
+            Persona per = new Persona();
+
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdPersonas = new SqlCommand("select * from personas p inner join usuarios u on u.id_persona=p.id_persona where u.nombre_usuario=@user", SqlConn);
+                cmdPersonas.Parameters.Add("@user", SqlDbType.VarChar, 50).Value = username;
+                SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
+
+                if (drPersonas.Read())
+                {
+                    per.ID = (int)drPersonas["id_persona"];
+                    per.Nombre = (string)drPersonas["nombre"];
+                    per.Apellido = (string)drPersonas["apellido"];
+                    per.Direccion = (string)drPersonas["direccion"];
+                    per.Email = (string)drPersonas["email"];
+                    per.Telefono = (string)drPersonas["telefono"];
+                    per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+                    per.Legajo = (int)drPersonas["legajo"];
+                    per.IDPlan = (int)drPersonas["id_plan"];
+                    per.Clave = (string)drPersonas["clave"];
+                    per.Habilitado = (bool)drPersonas["habilitado"];
+                    per.NombreUsuario = (string)drPersonas["nombre_usuario"];
+
+                    if ((int)drPersonas["tipo_persona"] == (int)TiposPersonas.Alumno)
+                        per.TipoPersona = TiposPersonas.Alumno;
+                    else if ((int)drPersonas["tipo_persona"] == (int)TiposPersonas.Docente)
+                    {
+                        per.TipoPersona = TiposPersonas.Docente;
+                    }
+                    else
+                    {
+                        per.TipoPersona = TiposPersonas.Admin;
+                    }
+                }
+
+                drPersonas.Close();
+            }
+
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada =
+               new Exception("Error al recuperar lista de personas", Ex);
+                throw ExcepcionManejada;
+            }
+
+            finally
+            {
+                this.CloseConnection();
+            }
+
+            return per;
+        }
+
 
         /*public List<DocenteCurso> GetDocentesByCurso(Curso curso)
         {
@@ -387,5 +536,8 @@ namespace Data.Database
 
             return docentesCursos;
         }*/
+
+
+
     }
 }

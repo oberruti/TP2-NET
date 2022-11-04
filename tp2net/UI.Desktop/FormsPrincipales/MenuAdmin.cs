@@ -18,14 +18,13 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
-        public MenuAdmin(Usuario usuario) : this()
+        public MenuAdmin(Persona persona) : this()
         {
-            UsuarioActual = usuario;
-            lblBienvenida.Text += " " + UsuarioActual.Apellido + " " + UsuarioActual.Nombre;
+            PersonaActual = persona;
+            lblBienvenida.Text += " " + PersonaActual.Apellido + " " + PersonaActual.Nombre;
         }
 
-        private Usuario _usuarioActual;
-
-        public Usuario UsuarioActual { get => _usuarioActual; set => _usuarioActual = value; }
+        private Persona _PersonaActual;
+        public Persona PersonaActual { get => _PersonaActual; set => _PersonaActual = value; }
     }
 }

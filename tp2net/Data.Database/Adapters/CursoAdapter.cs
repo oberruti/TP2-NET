@@ -26,10 +26,10 @@ namespace Data.Database
 
                     cur.ID = (int)drCursos["id_curso"];
                     cur.Año_calendario = (int)drCursos["anio_calendario"];
+                    cur.Descripcion = (string)drCursos["descripcion"];
                     cur.Cupo = (int)drCursos["cupo"];
                     cur.IDComision = (int)drCursos["id_comision"];
                     cur.IDMateria = (int)drCursos["id_materia"];
-
 
                     cursos.Add(cur);
                 }
@@ -62,6 +62,7 @@ namespace Data.Database
 
                     cur.ID = (int)drCursos["id_curso"];
                     cur.Año_calendario = (int)drCursos["anio_calendario"];
+                    cur.Descripcion = (string)drCursos["descripcion"];
                     cur.Cupo = (int)drCursos["cupo"];
                     cur.IDComision = (int)drCursos["id_comision"];
                     cur.IDMateria = (int)drCursos["id_materia"];
@@ -107,13 +108,14 @@ namespace Data.Database
                 this.OpenConnection();
 
                 SqlCommand cmdSave = new SqlCommand(
-                    "UPDATE cursos SET anio_calendario=@anio_calendario, cupo=@cupo, id_Materia=@id_materia, id_comision=@id_comision " +
+                    "UPDATE cursos SET anio_calendario=@anio_calendario, descripcion=@descripcion ,cupo=@cupo, id_Materia=@id_materia, id_comision=@id_comision " +
                     "WHERE id_curso=@id", SqlConn);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = curso.ID;
                 cmdSave.Parameters.Add("@anio_calendario", SqlDbType.VarChar, 50).Value = curso.Año_calendario;
                 cmdSave.Parameters.Add("@cupo", SqlDbType.VarChar, 50).Value = curso.Cupo;
                 cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.IDMateria;
                 cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.IDComision;
+                cmdSave.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = curso.Descripcion;
 
 
                 cmdSave.ExecuteNonQuery();
@@ -136,13 +138,14 @@ namespace Data.Database
                 this.OpenConnection();
 
                 SqlCommand cmdSave = new SqlCommand(
-                    "INSERT INTO cursos( anio_calendario, cupo, id_materia, id_comision) " +
-                    "values( @anio_calendario, @cupo, @id_materia, @id_comision) " +
+                    "INSERT INTO cursos( anio_calendario, descripcion ,cupo, id_materia, id_comision) " +
+                    "values( @anio_calendario, @cupo, @id_materia, @id_comision, @descripcion) " +
                     "SELECT @@identity", SqlConn);
                 cmdSave.Parameters.Add("@anio_calendario", SqlDbType.VarChar, 50).Value = curso.Año_calendario;
                 cmdSave.Parameters.Add("@cupo", SqlDbType.VarChar, 50).Value = curso.Cupo;
                 cmdSave.Parameters.Add("@id_materia", SqlDbType.VarChar, 50).Value = curso.IDMateria;
                 cmdSave.Parameters.Add("@id_comision", SqlDbType.VarChar, 50).Value = curso.IDComision;
+                cmdSave.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = curso.Descripcion;
 
                 curso.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
            

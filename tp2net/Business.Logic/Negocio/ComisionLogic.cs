@@ -44,5 +44,19 @@ namespace Business.Logic
             ComisionData.Save(materia);
         }
 
+        public int GetIndex(int id)
+        {
+            List<Comision> comisiones = ComisionData.GetAll();
+            int i = 0;
+            foreach (Comision com in comisiones)
+            {
+                if (com.ID == id)
+                {
+                    break;
+                }
+                ++i;
+            }
+            return i;
+        }
     }
 }

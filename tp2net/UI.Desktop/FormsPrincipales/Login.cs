@@ -19,19 +19,19 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
-        private Usuario _UsuarioActual;
+        private Persona _PersonaActual;
 
-        public Usuario UsuarioActual { get => _UsuarioActual; set => _UsuarioActual = value; }
+        public Persona PersonaActual { get => _PersonaActual; set => _PersonaActual = value; }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            UsuarioLogic ul = new UsuarioLogic();
+            PersonaLogic pl = new PersonaLogic();
             try
             {
-                if (ul.ValidarUser(txtUsuario.Text, txtPass.Text))
+                if (pl.ValidarPersona(txtUsuario.Text, txtPass.Text))
                 {
-                    UsuarioActual = ul.GetOneByNombreUsuario(txtUsuario.Text);
-                    if (UsuarioActual.Habilitado)
+                    PersonaActual = pl.GetOneByNombreUsuario(txtUsuario.Text);
+                    if (PersonaActual.Habilitado)
                     {
                         DialogResult = DialogResult.OK;
                     }
