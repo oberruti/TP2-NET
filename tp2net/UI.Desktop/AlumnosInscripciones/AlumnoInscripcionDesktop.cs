@@ -74,7 +74,17 @@ namespace UI.Desktop
         private void InicializarComboBox()
         {
             cmbIDCurso.DisplayMember = "descripcion";
-            cmbIDCurso.DataSource = new CursoLogic().GetAllCursosConCupos();
+            List<Curso> cursos = new CursoLogic().GetAllCursosConCupos();
+            List<Curso> cursosAMostrar = new List<Curso>();
+            foreach (Curso curso in cursos)
+            {
+                List<AlumnoInscripcion> inscripciones = new AlumnoInscripcionLogic().GetInscripcionesByCursoId(curso.ID);
+                if (inscripciones.Count < curso.Cupo)
+                {
+                    cursosAMostrar.Add(curso);
+                }
+            }
+            cmbIDCurso.DataSource = cursosAMostrar;
         }
 
         public virtual AlumnoInscripcion MapearADatos()
