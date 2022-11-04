@@ -26,5 +26,17 @@ namespace UI.Desktop
 
         private Persona _PersonaActual;
         public Persona PersonaActual { get => _PersonaActual; set => _PersonaActual = value; }
+
+        private void btnInscribirseCurso_Click(object sender, EventArgs e)
+        {
+            AlumnoInscripcionDesktop aid = new AlumnoInscripcionDesktop(PersonaActual);
+            aid.ShowDialog();
+        }
+
+        private void btnVerCursos_Click(object sender, EventArgs e)
+        {
+            AlumnosInscripcionesLista ail = new AlumnosInscripcionesLista(PersonaActual);
+            ail.ShowDialog();
+        }
     }
 }

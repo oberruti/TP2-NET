@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapter.cs" />
-    <Compile Include="Adapters\AlumnoAdapter.cs" />
+    <Compile Include="Adapters\AlumnoInscripcionAdapter.cs" />
     <Compile Include="Adapters\ComisionAdapter.cs" />
     <Compile Include="Adapters\CursoAdapter.cs" />
     <Compile Include="Adapters\DocenteCursoAdapter.cs" />
