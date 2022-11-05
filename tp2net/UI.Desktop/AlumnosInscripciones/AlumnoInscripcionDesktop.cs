@@ -74,7 +74,23 @@ namespace UI.Desktop
         private void InicializarComboBox()
         {
             cmbIDCurso.DisplayMember = "descripcion";
-            cmbIDCurso.DataSource = new CursoLogic().GetAllCursosConCupos();
+            List<Curso> cursos = new CursoLogic().GetAllCursosConCupos();
+            List<Curso> cursosAMostrar = new List<Curso>();
+            foreach (Curso curso in cursos)
+            {
+                List<AlumnoInscripcion> inscripciones = new AlumnoInscripcionLogic().GetInscripcionesByCursoId(curso.ID);
+                if (inscripciones.Count < curso.Cupo)
+                {
+                    cursosAMostrar.Add(curso);
+                }
+            }
+            if (cursosAMostrar.Count > 0) {
+                cmbIDCurso.DataSource = cursosAMostrar;
+                return;
+            }
+            this.Notificar("Atención", "No hay cursos con cupo.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Close();
+
         }
 
         public virtual AlumnoInscripcion MapearADatos()
