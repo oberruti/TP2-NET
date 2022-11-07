@@ -147,6 +147,9 @@ namespace UI.Web
                 docente.Telefono = telefonoTextBox.Text;
                 docente.Email = emailAlumnoTextBox.Text;
                 docente.IDPlan = int.Parse(idPlanTextBox.Text);
+                docente.NombreUsuario = nombreUsuarioAlumnoTextBox.Text;
+                docente.Clave = passAlumnoTextBox.Text;
+                docente.Habilitado = true;
             }
             catch (Exception error)
             {

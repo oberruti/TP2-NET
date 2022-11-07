@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Docentes.aspx.cs" Inherits="UI.Web.Docentes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            margin-bottom: 23;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
 
@@ -100,8 +105,12 @@
                     <asp:TextBox CssClass="form-input" AutoCompleteType="Email" placeholder="Email" ID="emailAlumnoTextBox" runat="server"></asp:TextBox>
                 </div>
                 <div class="col">
-                    <label>Email: </label>
-                    <asp:TextBox CssClass="form-input" AutoCompleteType="Email" placeholder="Email" ID="TextBox1" runat="server"></asp:TextBox>
+                    <label>Contraseña: 
+                    <asp:TextBox CssClass="form-input" placeholder="Contraseña" ID="passAlumnoTextBox" runat="server"></asp:TextBox>
+                    </label>
+                </div><div class="col">
+                    <label>Nombre usuario: 
+                    <asp:TextBox CssClass="form-input" placeholder="Usuario" ID="nombreUsuarioAlumnoTextBox" runat="server"></asp:TextBox>
                 </div>
                 <div class="col my-1">
                     <label>Id Plan: </label>

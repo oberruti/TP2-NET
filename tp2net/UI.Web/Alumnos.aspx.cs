@@ -12,7 +12,7 @@ namespace UI.Web
 {
     public partial class Alumnos : System.Web.UI.Page
     {
-        /*protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             div_mensaje_error.Visible = false;
 
@@ -22,28 +22,28 @@ namespace UI.Web
         protected Persona Entity = new Persona();
 
 
-        Alumnos_inscripcionesLogic _logicInscripciones;
-        PersonasLogic _logicAlumnos;
+        AlumnoInscripcionLogic _logicInscripciones;
+        PersonaLogic _logicAlumnos;
 
-        private Alumnos_inscripcionesLogic Logic
+        private AlumnoInscripcionLogic Logic
         {
             get
             {
                 if (_logicInscripciones == null)
                 {
-                    _logicInscripciones = new Alumnos_inscripcionesLogic();
+                    _logicInscripciones = new AlumnoInscripcionLogic();
                 }
                 return _logicInscripciones;
             }
         }
 
-        private PersonasLogic LogicAlumnos
+        private PersonaLogic LogicAlumnos
         {
             get
             {
                 if (_logicAlumnos == null)
                 {
-                    _logicAlumnos = new PersonasLogic();
+                    _logicAlumnos = new PersonaLogic();
                 }
                 return _logicAlumnos;
             }
@@ -120,12 +120,12 @@ namespace UI.Web
 
         private void modificarVistaSegunPermisosDelUsuario()
         {
-            Usuario usr = (Usuario)Session["current_user"];
-            switch (usr.DescTipoPersona)
+            Persona per = (Persona)Session["current_user"];
+            switch (per.TipoPersona)
             {
-                case "Administrativo": break;
-                case "Docente": Response.Redirect("Home.aspx"); break;
-                case "Alumno": Response.Redirect("Home.aspx"); break;
+                case TiposPersonas.Admin: break;
+                case TiposPersonas.Docente: Response.Redirect("Home.aspx"); break;
+                case TiposPersonas.Alumno: Response.Redirect("Home.aspx"); break;
             }
 
             HiddeElements();
@@ -166,8 +166,8 @@ namespace UI.Web
             this.direccionAlumnoTextBox.Text = this.Entity.Direccion;
             this.telefonoTextBox.Text = this.Entity.Telefono;
             this.emailAlumnoTextBox.Text = this.Entity.Email;
-            this.idPlanTextBox.Text = this.Entity.Id_Plan.ToString();
-            this.fechaNacimientoTextBox.Text = String.Format("{0:yyyy-MM-dd}", this.Entity.Fecha_nac);
+            this.idPlanTextBox.Text = this.Entity.IDPlan.ToString();
+            this.fechaNacimientoTextBox.Text = String.Format("{0:yyyy-MM-dd}", this.Entity.FechaNacimiento);
 
             form_alumno.Visible = true;
 
@@ -178,14 +178,14 @@ namespace UI.Web
             this.nombreYapellidoTextBox.Text = Entity.NombreApellido;
             this.condicionTextBox.Text = Entity.Condicion.ToString();
             **/
-        //}
+        }
 
-        /*
-        private void LoadEntity(Business.Entities.Personas alumno)
+        
+        private void LoadEntity(Business.Entities.Persona alumno)
         {
             try
             {
-                alumno.Tipo_perona = 3;
+                alumno.TipoPersona = TiposPersonas.Alumno;
                 alumno.Legajo = int.Parse(legajoTextBox.Text);
                 alumno.Nombre = nombreAlumnoTextBox.Text;
                 alumno.Apellido = apellidoAlumnoTextBox.Text;
@@ -193,7 +193,9 @@ namespace UI.Web
                 alumno.Direccion = direccionAlumnoTextBox.Text;
                 alumno.Telefono = telefonoTextBox.Text;
                 alumno.Email = emailAlumnoTextBox.Text;
-                alumno.Id_Plan = int.Parse(idPlanTextBox.Text);
+                alumno.Clave = TextBox1.Text;
+                alumno.NombreUsuario = TextBox2.Text;
+                alumno.IDPlan = int.Parse(idPlanTextBox.Text);
             }
             catch (Exception error)
             {
@@ -203,7 +205,7 @@ namespace UI.Web
 
             try
             {
-                alumno.Fecha_nac = DateTime.Parse(fechaNacimientoTextBox.Text);
+                alumno.FechaNacimiento = DateTime.Parse(fechaNacimientoTextBox.Text);
             }
             catch (Exception error)
             {
@@ -341,7 +343,7 @@ namespace UI.Web
              
             if (validarCampos())
             {
-                Personas nuevoAlumno = new Personas();
+                Persona nuevoAlumno = new Persona();
 
                 try
                 {
@@ -353,7 +355,7 @@ namespace UI.Web
                             this.LoadGrid();
                             break;
                         case FormModes.Modificacion:
-                            this.Entity = new Business.Entities.Personas();
+                            this.Entity = new Business.Entities.Persona();
                             this.Entity.ID = this.SelectedID;
                             this.Entity.State = Business.Entities.BusinessEntity.States.Modified;
                             this.LoadEntity(this.Entity);
@@ -363,7 +365,7 @@ namespace UI.Web
                         default:
                             break;
                         case FormModes.Alta:
-                            this.Entity = new Business.Entities.Personas();
+                            this.Entity = new Business.Entities.Persona();
                             this.LoadEntity(this.Entity);
                             LogicAlumnos.Save(Entity);
                             this.LoadGrid();
@@ -422,7 +424,7 @@ namespace UI.Web
 
         private void LoadPlanGrid()
         {
-            this.planGridView.DataSource = new PlanesLogic().GetAll();
+            this.planGridView.DataSource = new PlanLogic().GetAll();
             this.planGridView.DataBind();
         }
 
@@ -437,7 +439,7 @@ namespace UI.Web
             AlumnosGridView.PageIndex = e.NewPageIndex;
             LoadGrid();
         }
-        */
+        
     }
 
 

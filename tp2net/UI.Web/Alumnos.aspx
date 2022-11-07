@@ -106,6 +106,14 @@
                     <asp:TextBox CssClass="form-input" placeholder="Email" AutoCompleteType="Email" ID="emailAlumnoTextBox" runat="server"></asp:TextBox>
                 </div>
                 <div class="col">
+                    <label>Contraseña: </label>
+                    <asp:TextBox CssClass="form-input" placeholder="Contraseña" ID="TextBox1" runat="server"></asp:TextBox>
+                </div>
+                <div class="col">
+                    <label>Usuario: </label>
+                    <asp:TextBox CssClass="form-input" placeholder="Usuario" ID="TextBox2" runat="server"></asp:TextBox>
+                </div>
+                <div class="col">
                     <label>Id Plan: </label>
                     <asp:TextBox ID="idPlanTextBox" runat="server" CssClass="form-input" Enabled="false"></asp:TextBox>
                     <asp:Button ID="seleccionarButton" runat="server" CssClass="btn btn-primary" Text="Seleccionar Plan" OnClick="seleccionarButton_Click" />
@@ -121,8 +129,8 @@
                     <SelectedRowStyle BackColor="Black" ForeColor="White" />
                     <Columns>
                         <asp:BoundField DataField="ID" HeaderText="ID" />
-                        <asp:BoundField DataField="DescPlan" HeaderText="Descripcion Plan" />
-                        <asp:BoundField DataField="DescEspecialidad" HeaderText="Especialidad" />
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion Plan" />
+                        <asp:BoundField DataField="IDEspecialidad" HeaderText="ID Especialidad" />
                         <asp:CommandField HeaderText="Seleccionar" ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
