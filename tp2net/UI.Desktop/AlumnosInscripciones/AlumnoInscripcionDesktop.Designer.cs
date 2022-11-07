@@ -40,8 +40,9 @@ namespace UI.Desktop
             this.txtNota = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.cmbIDCurso = new System.Windows.Forms.ComboBox();
             this.lblAlumno = new System.Windows.Forms.Label();
+            this.cmbIDCurso = new System.Windows.Forms.ComboBox();
+            this.lblAlumno2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.23653F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.76347F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -65,6 +66,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.lblAlumno, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.cmbIDCurso, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblAlumno2, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -77,6 +79,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label1
             // 
@@ -163,7 +166,7 @@ namespace UI.Desktop
             // btnAceptar
             // 
             this.btnAceptar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAceptar.Location = new System.Drawing.Point(602, 391);
+            this.btnAceptar.Location = new System.Drawing.Point(601, 391);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(89, 56);
             this.btnAceptar.TabIndex = 0;
@@ -182,6 +185,16 @@ namespace UI.Desktop
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // lblAlumno
+            // 
+            this.lblAlumno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAlumno.AutoSize = true;
+            this.lblAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlumno.Location = new System.Drawing.Point(746, 89);
+            this.lblAlumno.Name = "lblAlumno";
+            this.lblAlumno.Size = new System.Drawing.Size(0, 20);
+            this.lblAlumno.TabIndex = 12;
+            // 
             // cmbIDCurso
             // 
             this.cmbIDCurso.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -191,15 +204,14 @@ namespace UI.Desktop
             this.cmbIDCurso.Size = new System.Drawing.Size(255, 21);
             this.cmbIDCurso.TabIndex = 11;
             // 
-            // lblAlumno
+            // lblAlumno2
             // 
-            this.lblAlumno.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAlumno.AutoSize = true;
-            this.lblAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlumno.Location = new System.Drawing.Point(747, 89);
-            this.lblAlumno.Name = "lblAlumno";
-            this.lblAlumno.Size = new System.Drawing.Size(0, 20);
-            this.lblAlumno.TabIndex = 12;
+            this.lblAlumno2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAlumno2.AutoSize = true;
+            this.lblAlumno2.Location = new System.Drawing.Point(475, 92);
+            this.lblAlumno2.Name = "lblAlumno2";
+            this.lblAlumno2.Size = new System.Drawing.Size(0, 13);
+            this.lblAlumno2.TabIndex = 13;
             // 
             // AlumnoInscripcionDesktop
             // 
@@ -230,5 +242,6 @@ namespace UI.Desktop
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cmbIDCurso;
         private System.Windows.Forms.Label lblAlumno;
+        private System.Windows.Forms.Label lblAlumno2;
     }
 }

@@ -30,7 +30,7 @@ namespace UI.Desktop
             InitializeComponent();
             InicializarComboBox();
             this.Modo = ModoForm.Alta;
-            this.lblAlumno.Text = PersonaActual.Apellido + ", " + PersonaActual.Nombre;
+            this.lblAlumno2.Text = PersonaActual.Apellido + ", " + PersonaActual.Nombre;
         }
         public AlumnoInscripcionDesktop(int ID, ModoForm modo, Persona p)
         {
@@ -45,7 +45,7 @@ namespace UI.Desktop
 
         public override void MapearDeDatos()
         {
-            this.lblAlumno.Text = PersonaActual.Apellido + ", " + PersonaActual.Nombre;
+            this.lblAlumno2.Text = PersonaActual.Apellido + ", " + PersonaActual.Nombre;
             this.cmbIDCurso.Enabled = false;
             this.txtCondicion.Enabled = true;
             this.txtNota.Enabled = true;
@@ -153,6 +153,10 @@ namespace UI.Desktop
             return x;
         }
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
