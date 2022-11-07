@@ -47,5 +47,25 @@ namespace Business.Logic
         {
             return CursoData.GetAllCursosConCupos();
         }
+
+        public List<Curso> GetAllForDoc(int id_doc)
+        {
+            return CursoData.GetAllForDoc(id_doc);
+        }
+        public List<Curso> GetAllForAlum(int id_alum)
+        {
+            return CursoData.GetAllForAlum(id_alum);
+        }
+
+        public List<Curso> GetAllDoc(int id_doc)
+        {
+            return CursoData.GetAllDoc(id_doc);
+        }
+
+        public List<Curso> GetAllYearAlum(int idAlumno, int year)
+        {
+            return CursoData.GetAllYearAlum(idAlumno, year);
+        }
+
     }
 }

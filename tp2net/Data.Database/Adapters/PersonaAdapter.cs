@@ -537,7 +537,171 @@ namespace Data.Database
             return docentesCursos;
         }*/
 
+        public Persona LoginUsuario(string nombreUsuario, string clave)
+        {
+            Persona per = new Persona();
+            try
+            {
+                OpenConnection();
+                SqlCommand cmdUsuarios = new SqlCommand("select * from usuarios usr " +
+                    "inner join personas per on usr.id_persona = per.id_persona " +
+                    "WHERE nombre_usuario = @nombre_usuario and clave = @clave", SqlConn);
+                cmdUsuarios.Parameters.Add("@nombre_usuario", SqlDbType.VarChar).Value = nombreUsuario;
+                cmdUsuarios.Parameters.Add("@clave", SqlDbType.VarChar).Value = clave;
+                SqlDataReader drPersonas = cmdUsuarios.ExecuteReader();
+                while (drPersonas.Read())
+                {
+                    per.ID = (int)drPersonas["id_persona"];
+                    per.Nombre = (string)drPersonas["nombre"];
+                    per.Apellido = (string)drPersonas["apellido"];
+                    per.Direccion = (string)drPersonas["direccion"];
+                    per.Email = (string)drPersonas["email"];
+                    per.Telefono = (string)drPersonas["telefono"];
+                    per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+                    per.Legajo = (int)drPersonas["legajo"];
+                    per.IDPlan = (int)drPersonas["id_plan"];
+                    per.Clave = (string)drPersonas["clave"];
+                    per.Habilitado = (bool)drPersonas["habilitado"];
+                    per.NombreUsuario = (string)drPersonas["nombre_usuario"];
 
+                    if ((int)drPersonas["tipo_persona"] == (int)TiposPersonas.Alumno)
+                        per.TipoPersona = TiposPersonas.Alumno;
+                    else if ((int)drPersonas["tipo_persona"] == (int)TiposPersonas.Docente)
+                    {
+                        per.TipoPersona = TiposPersonas.Docente;
+                    }
+                    else
+                    {
+                        per.TipoPersona = TiposPersonas.Admin;
+                    }
+                }
+                drPersonas.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de usuario", Ex);
+                throw ExcepcionManejada;
+
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            if (per.NombreUsuario != null)
+            {
+                return per;
+            }
+            else return null;
+
+        }
+
+        public List<Persona> GetAllTipoPersona(int tipoPersona)
+        {
+            List<Persona> personas = new List<Persona>();
+            try
+            {
+                OpenConnection();
+
+                SqlCommand cmdPersonas = new SqlCommand("SELECT * " +
+                    "   FROM personas WHERE tipo_persona = @tipoPersona ", SqlConn);
+
+                cmdPersonas.Parameters.Add("@tipoPersona", SqlDbType.Int).Value = tipoPersona;
+                SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
+
+                while (drPersonas.Read())
+                {
+                    Persona per = new Persona();
+
+                    per.ID = (int)drPersonas["id_persona"];
+                    per.Nombre = (string)drPersonas["nombre"];
+                    per.Apellido = (string)drPersonas["apellido"];
+                    per.Direccion = (string)drPersonas["direccion"];
+                    per.Email = (string)drPersonas["email"];
+                    per.Telefono = (string)drPersonas["telefono"];
+                    per.Legajo = (int)drPersonas["legajo"];
+                    per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+
+                    if ((int)drPersonas["tipo_persona"] == (int)TiposPersonas.Alumno)
+                        per.TipoPersona = TiposPersonas.Alumno;
+                    else
+                        per.TipoPersona = TiposPersonas.Docente;
+
+                    personas.Add(per);
+                }
+
+                drPersonas.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista.", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return personas;
+
+        }
+
+        public List<Persona> GetPersonasByCourse(int IdCurso, int tipoPersona)
+        {
+            List<Persona> personas = new List<Persona>();
+            try
+            {
+                OpenConnection();
+
+                SqlCommand cmdPersonas = new SqlCommand("SELECT DISTINCT p.* FROM cursos cur" +
+
+                " INNER JOIN materias m ON m.id_materia = cur.id_materia" +
+
+                " INNER JOIN comisiones c ON c.id_comision = cur.id_comision " +
+
+                " INNER JOIN personas p ON p.id_plan = m.id_plan " +
+
+               " WHERE cur.id_curso = @idCurso AND tipo_persona = @tipoPersona", SqlConn);
+
+                cmdPersonas.Parameters.Add("@idCurso", SqlDbType.Int).Value = IdCurso;
+                cmdPersonas.Parameters.Add("@tipoPersona", SqlDbType.Int).Value = tipoPersona;
+                SqlDataReader drPersonas = cmdPersonas.ExecuteReader();
+
+                while (drPersonas.Read())
+                {
+                    Persona per = new Persona();
+
+                    per.ID = (int)drPersonas["id_persona"];
+                    per.Nombre = (string)drPersonas["nombre"];
+                    per.Apellido = (string)drPersonas["apellido"];
+                    per.Direccion = (string)drPersonas["direccion"];
+                    per.Email = (string)drPersonas["email"];
+                    per.Telefono = (string)drPersonas["telefono"];
+                    per.Legajo = (int)drPersonas["legajo"];
+                    if ((int)drPersonas["tipo_persona"] == (int)TiposPersonas.Alumno)
+                    {
+                        per.TipoPersona = TiposPersonas.Alumno;
+                    }
+                    else { per.TipoPersona = TiposPersonas.Docente; }
+                    per.FechaNacimiento = (DateTime)drPersonas["fecha_nac"];
+
+                    personas.Add(per);
+                }
+
+                drPersonas.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de alumnos.", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return personas;
+
+        }
 
     }
 }

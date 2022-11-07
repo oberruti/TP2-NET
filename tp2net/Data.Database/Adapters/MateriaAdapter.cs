@@ -184,5 +184,96 @@ namespace Data.Database
             }
             materia.State = BusinessEntity.States.Unmodified;
         }
+
+        public List<Materia> GetAllPlan(int idPlan)
+        {
+            List<Materia> materia = new List<Materia>();
+
+            try
+            {
+                OpenConnection();
+
+                SqlCommand cmdMaterias = new SqlCommand("SELECT * FROM materias m " +
+                    "inner join planes p on p.id_plan = m.id_plan " +
+                    "where m.id_plan = @id_plan", SqlConn);
+                cmdMaterias.Parameters.Add("@id_plan", SqlDbType.Int).Value = idPlan;
+                SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
+
+                while (drMaterias.Read())
+                {
+                    Materia mat = new Materia();
+
+                    mat.ID = (int)drMaterias["id_materia"];
+                    mat.Descripcion = (string)drMaterias["desc_materia"];
+                    mat.HSSemanales = (int)drMaterias["hs_semanales"];
+                    mat.HSTotales = (int)drMaterias["hs_totales"];
+                    mat.IDPlan = (int)drMaterias["id_plan"];
+                    
+                    materia.Add(mat);
+                }
+
+                drMaterias.Close();
+
+
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de materias.", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return materia;
+        }
+
+        public object GetAllByComision(int idComision)
+        {
+            List<Materia> materia = new List<Materia>();
+
+            try
+            {
+                OpenConnection();
+
+                SqlCommand cmdMaterias = new SqlCommand("  SELECT m.*, p.*, e.* FROM materias m " +
+                  " inner join planes p on p.id_plan = m.id_plan " +
+                  " inner join especialidades e on e.id_especialidad = p.id_especialidad " +
+                  "  INNER JOIN comisiones c ON c.id_plan = p.id_plan " +
+                  "WHERE c.id_comision = @idComision", SqlConn);
+                cmdMaterias.Parameters.Add("@idComision", SqlDbType.Int).Value = idComision;
+                SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
+
+                while (drMaterias.Read())
+                {
+                    Materia mat = new Materia();
+
+                    mat.ID = (int)drMaterias["id_materia"];
+                    mat.Descripcion = (string)drMaterias["desc_materia"];
+                    mat.HSSemanales = (int)drMaterias["hs_semanales"];
+                    mat.HSTotales = (int)drMaterias["hs_totales"];
+                    mat.IDPlan = (int)drMaterias["id_plan"];
+
+                    materia.Add(mat);
+
+                }
+
+                drMaterias.Close();
+
+
+            }
+            catch (Exception e)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de materias.", e);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return materia;
+        }
     }
 }

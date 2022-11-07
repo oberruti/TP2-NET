@@ -33,9 +33,10 @@ namespace Data.Database
                     dc.IDDocente = (int)drDocCur["id_docente"];
                     int cargo = (int)drDocCur["cargo"];
                     if (cargo == 0)
-                        dc.Cargo = DocenteCurso.TiposCargo.Titular;
-                    else
-                        dc.Cargo = DocenteCurso.TiposCargo.Ayudante;
+                        dc.Cargo = TiposCargo.Jefe;
+                    else if (cargo == 1)
+                        dc.Cargo = TiposCargo.Docente;
+                    else dc.Cargo = TiposCargo.Ayudante;
 
                     listDC.Add(dc);
                 }
@@ -69,10 +70,15 @@ namespace Data.Database
 
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = dictado.IDCurso;
                 cmdSave.Parameters.Add("@id_docente", SqlDbType.Int).Value = dictado.IDDocente;
-                if (dictado.Cargo == DocenteCurso.TiposCargo.Titular)
+                if (dictado.Cargo == TiposCargo.Jefe)
+                {
                     cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = 0;
-                else
+                }
+                else if (dictado.Cargo == TiposCargo.Docente)
+                {
                     cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = 1;
+                }
+                else { cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = 2; }
 
                 dictado.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
@@ -98,10 +104,11 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = dictado.IDCurso;
                 cmdSave.Parameters.Add("@id_docente", SqlDbType.Int).Value = dictado.IDDocente;
                 cmdSave.Parameters.Add("@id_dictado", SqlDbType.Int).Value = dictado.ID;
-                if (dictado.Cargo == DocenteCurso.TiposCargo.Titular)
+                if (dictado.Cargo == TiposCargo.Jefe)
                     cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = 0;
-                else
+                else if (dictado.Cargo == TiposCargo.Docente)
                     cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = 1;
+                else cmdSave.Parameters.Add("@cargo", SqlDbType.Int).Value = 2;
 
                 cmdSave.ExecuteNonQuery();
             }
@@ -153,6 +160,167 @@ namespace Data.Database
                 this.Update(dictado);
             }
             dictado.State = BusinessEntity.States.Unmodified;
+        }
+
+        public List<DocenteCurso> GetAll()
+        {
+            List<DocenteCurso> docentes_cursos = new List<DocenteCurso>();
+            try
+            {
+                OpenConnection();
+
+                SqlCommand cmdDocentes_Cursos = new SqlCommand("select * from docentes_cursos dc " +
+                    "inner join cursos c on c.id_curso = dc.id_curso " +
+                    "inner join materias m on m.id_materia = c.id_materia " +
+                    "inner join comisiones com on com.id_comision = c.id_comision " +
+                    "inner join personas p on p.id_persona = dc.id_docente ", SqlConn);
+
+                SqlDataReader drDocentes_Cursos = cmdDocentes_Cursos.ExecuteReader();
+
+                while (drDocentes_Cursos.Read())
+                {
+                    DocenteCurso dc = new DocenteCurso();
+
+                    dc.ID = (int)drDocentes_Cursos["id_dictado"];
+                    dc.IDCurso = (int)drDocentes_Cursos["id_curso"];
+                    dc.IDDocente = (int)drDocentes_Cursos["id_docente"];
+
+                    if ((int)drDocentes_Cursos["cargo"] == (int)TiposCargo.Jefe)
+                    {
+                        dc.Cargo = TiposCargo.Jefe;
+                    }
+                    else if ((int)drDocentes_Cursos["cargo"] == (int)TiposCargo.Docente)
+                    {
+                        dc.Cargo = TiposCargo.Docente;
+                    }
+                    else
+                    {
+                        dc.Cargo = TiposCargo.Ayudante;
+                    }
+
+                    docentes_cursos.Add(dc);
+                }
+
+                drDocentes_Cursos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Docentes_cursos.", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return docentes_cursos;
+
+        }
+
+        public List<DocenteCurso> GetAllYearDoc(int idDoc, int year)
+        {
+            List<DocenteCurso> docentes_cursos = new List<DocenteCurso>();
+            try
+            {
+                OpenConnection();
+
+                SqlCommand cmdDocentes_Cursos = new SqlCommand("select * from docentes_cursos dc " +
+                    "inner join cursos c on c.id_curso = dc.id_curso " +
+                    "inner join personas p on p.id_persona = dc.id_docente " +
+                    "where dc.id_docente=@id_docente " +
+                    "and c.anio_calendario = @year ", SqlConn);
+                cmdDocentes_Cursos.Parameters.Add("@id_docente", SqlDbType.Int).Value = idDoc;
+                cmdDocentes_Cursos.Parameters.Add("@year", SqlDbType.Int).Value = year;
+                SqlDataReader drDocentes_Cursos = cmdDocentes_Cursos.ExecuteReader();
+
+                while (drDocentes_Cursos.Read())
+                {
+                    DocenteCurso dc = new DocenteCurso();
+
+                    dc.ID = (int)drDocentes_Cursos["id_dictado"];
+                    dc.IDCurso = (int)drDocentes_Cursos["id_curso"];
+                    dc.IDDocente = (int)drDocentes_Cursos["id_docente"];
+                    if ((int)drDocentes_Cursos["cargo"] == (int)TiposCargo.Jefe)
+                    {
+                        dc.Cargo = TiposCargo.Jefe;
+                    }
+                    else if ((int)drDocentes_Cursos["cargo"] == (int)TiposCargo.Docente)
+                    {
+                        dc.Cargo = TiposCargo.Docente;
+                    }
+                    else
+                    {
+                        dc.Cargo = TiposCargo.Ayudante;
+                    }
+
+                    docentes_cursos.Add(dc);
+                }
+
+                drDocentes_Cursos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Docentes_cursos.", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return docentes_cursos;
+
+        }
+
+        public DocenteCurso GetOne(int id_dictado)
+        {
+            DocenteCurso dc = new DocenteCurso();
+            try
+            {
+                OpenConnection();
+                SqlCommand cmdDocentes_Cursos = new SqlCommand("select * from docentes_cursos dc " +
+                    "inner join cursos c on c.id_curso = dc.id_curso " +
+                    "inner join personas p on p.id_persona = dc.id_docente " +
+                    "WHERE dc.id_dictado = @id_dictado", SqlConn);
+                cmdDocentes_Cursos.Parameters.Add("@id_dictado", SqlDbType.Int).Value = id_dictado;
+                SqlDataReader drDocentes_Cursos = cmdDocentes_Cursos.ExecuteReader();
+                while (drDocentes_Cursos.Read())
+                {
+                    dc.ID = (int)drDocentes_Cursos["id_dictado"];
+                    dc.IDCurso = (int)drDocentes_Cursos["id_curso"];
+                    dc.IDDocente = (int)drDocentes_Cursos["id_docente"];
+                    if ((int)drDocentes_Cursos["cargo"] == (int)TiposCargo.Jefe)
+                    {
+                        dc.Cargo = TiposCargo.Jefe;
+                    }
+                    else if ((int)drDocentes_Cursos["cargo"] == (int)TiposCargo.Docente)
+                    {
+                        dc.Cargo = TiposCargo.Docente;
+                    }
+                    else
+                    {
+                        dc.Cargo = TiposCargo.Ayudante;
+                    }
+                }
+                drDocentes_Cursos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de docentes_cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            if (dc.ID != 0)
+            {
+                return dc;
+            }
+            else
+            {
+                throw new Exception("El curso no existe para ese docente");
+            }
         }
 
     }

@@ -168,7 +168,5 @@ namespace Data.Database
             }
             esp.State = BusinessEntity.States.Unmodified;
         }
-
-
     }
 }
