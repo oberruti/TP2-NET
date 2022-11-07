@@ -58,5 +58,13 @@ namespace Business.Logic
             }
             return i;
         }
+        public List<Materia> GetAllPlan(int idPlan)
+        {
+            return MateriaData.GetAllPlan(idPlan);
+        }
+        public object GetAllByComision(int idComision)
+        {
+            return MateriaData.GetAllByComision(idComision);
+        }
     }
 }

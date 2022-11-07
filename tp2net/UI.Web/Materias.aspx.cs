@@ -11,13 +11,18 @@ namespace UI.Web
 {
     public partial class Materias : System.Web.UI.Page
     {
-        private Materia Entity
+        protected void Page_Load(object sender, EventArgs e)
         {
-            get;
-            set;
+
+            this.LoadGrid();
+            modificarVistaSegunPermisosDelUsuario();
         }
 
+        private Business.Entities.Materia Entity { get; set; }
+
         MateriaLogic _logic;
+
+
         private MateriaLogic Logic
         {
             get
@@ -28,6 +33,28 @@ namespace UI.Web
                 }
                 return _logic;
             }
+        }
+
+
+        private void modificarVistaSegunPermisosDelUsuario()
+        {
+            Persona per = (Persona)Session["current_user"];
+            switch (per.TipoPersona)
+            {
+                case TiposPersonas.Admin: break;
+                case TiposPersonas.Docente: Response.Redirect("Home.aspx"); break;
+                case TiposPersonas.Alumno: vistaParaAlumno(); break;
+            }
+        }
+
+
+
+        private void vistaParaAlumno()
+        {
+
+            formActionsPanel.Visible = false;
+            gridActionsPanel.Visible = false;
+            seleccionaBtn.Visible = false;
         }
 
         private int SelectedID
@@ -43,6 +70,7 @@ namespace UI.Web
                     return 0;
                 }
             }
+
             set
             {
                 this.ViewState["SelectedID"] = value;
@@ -57,17 +85,10 @@ namespace UI.Web
             }
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            this.modo_vista(true);
-            LoadGrid();
-        }
 
         public enum FormModes
         {
-            Alta,
-            Baja,
-            Modificacion
+            Alta, Baja, Modificacion
         }
 
         public FormModes FormMode
@@ -76,142 +97,198 @@ namespace UI.Web
             set { this.ViewState["FormMode"] = value; }
         }
 
-        private void LoadForm(int id)
-        {
-            this.Entity = this.Logic.GetOne(id);
-            this.desc_materiaTextBox.Text = this.Entity.Desc_materia;
-            this.hs_semanalesTextBox.Text = this.Entity.Hs_semanales.ToString();
-            this.hs_totalesTextBox.Text = this.Entity.Hs_totales.ToString();
-            this.id_planTextBox.Text = this.Entity.Id_Plan.ToString();
-        }
-
-        private void LoadEntity(Materia materia)
-        {
-            materia.Desc_materia = this.desc_materiaTextBox.Text;
-            materia.Hs_semanales = int.Parse(this.hs_semanalesTextBox.Text);
-            materia.Hs_totales = int.Parse(this.hs_totalesTextBox.Text);
-            materia.Id_Plan = int.Parse(this.id_planTextBox.Text);
-        }
-
-        protected void LoadGrid()
-        {
-            this.gridView.DataSource = this.Logic.GetAll();
-            this.gridView.DataBind();
-        }
-
-        protected void GridView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.SelectedID = (int)this.gridView.SelectedValue;
-        }
-
-        private void SaveEntity(Materia materia)
-        {
-            try
-            {
-                this.Logic.Save(materia);
-            }
-            catch
-            {
-                Response.Write("<script>alert('Error: La materia no se ha guardado, por favor verifique los valores ingresados.')</script>");
-            }
-        }
 
         private void DeleteEntity(int id)
         {
             this.Logic.Delete(id);
         }
 
+        private void SaveEntity(Business.Entities.Materia materia)
+        {
+            this.Logic.Save(materia);
+        }
+
+
+        private void LoadGrid()
+        {
+            Persona per = (Persona)Session["current_user"];
+            switch (per.TipoPersona)
+            {
+                case TiposPersonas.Admin:
+                    this.gridView.DataSource = this.Logic.GetAll(); break;
+                case TiposPersonas.Alumno:
+                    this.gridView.DataSource = this.Logic.GetAllPlan(per.IDPlan);
+                    this.gridView.Columns[0].Visible = false;
+                    this.gridView.Columns[4].Visible = false;
+                    this.gridView.Columns[5].Visible = false;
+                    break;
+            }
+            this.gridView.DataBind();
+
+        }
+
         private void EnableForm(bool enable)
         {
-            this.desc_materiaTextBox.Enabled = enable;
-            this.hs_semanalesTextBox.Enabled = enable;
-            this.hs_totalesTextBox.Enabled = enable;
-            this.id_planTextBox.Enabled = enable;
+
+            this.descripcionEspecialidadLabel.Visible = enable;
+            this.descripcionTextBox.Enabled = enable; // >>> ???? >> > > > > >> > > > > > > > > 
         }
 
-        // Vacia formulario luego de edicion
+        private void LoadForm(int id)
+        {
+            this.Entity = this.Logic.GetOne(id);
+            this.descripcionTextBox.Text = this.Entity.Descripcion;
+            this.descripcionTextBox.Text = Entity.Descripcion;
+            this.horasSemanalesTextBox.Text = Entity.HSSemanales.ToString();
+            this.horasTotalesTextBox.Text = Entity.HSTotales.ToString();
+            this.idPlanTextBox.Text = Entity.IDPlan.ToString();
+
+        }
+        private void LoadEntity(Business.Entities.Materia materia)
+        {
+            materia.Descripcion = this.descripcionTextBox.Text;
+            materia.HSSemanales = int.Parse(this.horasSemanalesTextBox.Text);
+            materia.HSTotales = int.Parse(this.horasTotalesTextBox.Text);
+            materia.IDPlan = int.Parse(this.idPlanTextBox.Text);
+        }
+
         private void ClearForm()
         {
-            this.desc_materiaTextBox.Text = string.Empty;
-            this.hs_semanalesTextBox.Text = string.Empty;
-            this.hs_totalesTextBox.Text = string.Empty;
-            this.id_planTextBox.Text = string.Empty;
-        }
+            this.descripcionTextBox.Text = string.Empty;
+            this.horasSemanalesTextBox.Text = string.Empty;
+            this.horasTotalesTextBox.Text = string.Empty;
+            this.idPlanTextBox.Text = string.Empty;
+            this.idIngresoTextBox.Text = string.Empty;
 
-        // BOTONES GRID
-        protected void nuevoLinkButton_Click(object sender, EventArgs e)
-        {
-            this.modo_vista(false);
-            this.FormMode = FormModes.Alta;
-            this.ClearForm();
-            this.EnableForm(true);
         }
 
         protected void editarLinkButton_Click(object sender, EventArgs e)
         {
+
             if (this.IsEntitySelected)
             {
-                this.modo_vista(false);
+
+                this.formPanel.Visible = true;
                 this.FormMode = FormModes.Modificacion;
+                tituloForm.Text = "Modificar especialidad";
                 this.LoadForm(this.SelectedID);
             }
         }
 
-        protected void eliminarLinkButton_Click(object sender, EventArgs e)
-        {
-            if (this.IsEntitySelected)
-            {
-                this.modo_vista(false);
-                this.FormMode = FormModes.Baja;
-                this.EnableForm(false);
-                this.LoadForm(this.SelectedID);
-            }
-        }
 
-        // BOTONES FORM
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
-            switch (this.FormMode)
-            {
-                case FormModes.Alta:
-                    this.Entity = new Materia();
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    break;
-                case FormModes.Baja:
-                    this.DeleteEntity(this.SelectedID);
-                    break;
-                case FormModes.Modificacion:
-                    this.Entity = new Materia();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    break;
-                default:
-                    break;
-            }
-            this.modo_vista(true);
-            this.LoadGrid();
-        }
+            TextBox[] arreglo = { descripcionTextBox, horasSemanalesTextBox, horasTotalesTextBox, idPlanTextBox };
+           
 
+            if (methods.validarYPintarCamposVacios(arreglo))
+            {
+                switch (this.FormMode)
+                {
+                    case FormModes.Baja:
+                        this.DeleteEntity(this.SelectedID);
+                        this.LoadGrid();
+                        break;
+                    case FormModes.Modificacion:
+                        this.Entity = new Business.Entities.Materia();
+                        this.Entity.ID = this.SelectedID;
+                        this.Entity.State = Business.Entities.BusinessEntity.States.Modified;
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                    default:
+                        break;
+                    case FormModes.Alta:
+                        this.Entity = new Business.Entities.Materia();
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.LoadGrid();
+                        break;
+                }
+                this.formPanel.Visible = false;
+                mensajeDeValidacionDeCampo.Visible = false;
+            }
+            else
+            {
+                mensajeDeValidacionDeCampo.Visible = true;
+
+            }
+        }
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
-            this.modo_vista(true);
+            ClearForm();
+            this.formPanel.Visible = false;
+
         }
 
-        protected void modo_vista(bool modo)
+        protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
-            // true: seleccion - false: edicion.
-            this.gridPanel.Visible = modo;
-            this.formPanel.Visible = !modo;
-            this.gridActionsPanel.Visible = modo;
-            this.formActionsPanel.Visible = !modo;
+
+            this.formPanel.Visible = true;
+            this.FormMode = FormModes.Alta;
+            this.ClearForm();
+            this.EnableForm(true);
+            tituloForm.Text = "Nueva materia";
         }
 
-        protected void btnMenuPrincipal_Click(object sender, EventArgs e)
+
+        protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            this.SelectedID = (int)this.gridView.SelectedValue;
         }
+
+        protected void buscarButton_Click(object sender, EventArgs e)
+        {
+            int idIngreso = int.Parse(this.idIngresoTextBox.Text);
+
+            if (idIngresoTextBox.Text.Length > 0)
+            {
+                try
+                {
+                    ClearForm();
+                    LoadForm(idIngreso);
+                    tituloForm.Text = "Modificar materia";
+                    this.FormMode = FormModes.Modificacion;
+                    this.formPanel.Visible = true;
+                    idIngresoTextBox.BorderColor = System.Drawing.Color.White;
+                }
+                catch (Exception er)
+                {
+
+                    idIngresoTextBox.BorderColor = System.Drawing.Color.Red;
+                }
+            }
+            else
+            {
+                idIngresoTextBox.BorderColor = System.Drawing.Color.Red;
+            }
+
+        }
+        protected void seleccionarButton(object sender, EventArgs e)
+        {
+            LoadEspecialidadGrid();
+            tablaPlan.Visible = true;
+
+        }
+
+        private void LoadEspecialidadGrid()
+        {
+            this.planGridView.DataSource = new PlanLogic().GetAll();
+            this.planGridView.DataBind();
+        }
+
+        protected void planGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.idPlanTextBox.Text = this.planGridView.SelectedValue.ToString();
+            this.tablaPlan.Visible = false;
+        }
+
+        protected void gridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridView.PageIndex = e.NewPageIndex;
+            LoadGrid();
+        }
+
     }
 }

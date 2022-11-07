@@ -39,5 +39,30 @@ namespace Business.Logic
         public Persona GetOneByNombreUsuario(string nombreUsuario) {
             return PersonaData.GetOneByNombreUsuario(nombreUsuario);
         }
+
+        public Persona LoginUsuario(string nombreUsuario, string clave)
+        {
+            return PersonaData.LoginUsuario(nombreUsuario, clave);
+        }
+
+        public List<Persona> GetAllDocentes()
+        {
+            return PersonaData.GetAllTipoPersona((int)TiposPersonas.Docente);
+        }
+
+        public List<Persona> GetAllAlumnos()
+        {
+            return PersonaData.GetAllTipoPersona((int)TiposPersonas.Alumno);
+        }
+
+        public List<Persona> GetDocentesByCourse(int idCurso)
+        {
+            return PersonaData.GetPersonasByCourse(idCurso, (int)TiposPersonas.Docente);
+        }
+
+        public List<Persona> GetAlumnsByCourse(int idCurso)
+        {
+            return PersonaData.GetPersonasByCourse(idCurso, (int)TiposPersonas.Alumno);
+        }
     }
 }

@@ -37,5 +37,20 @@ namespace Business.Logic
         {
             this.DocenteCursoData.Save(docente);
         }
+
+        public List<DocenteCurso> GetAll()
+        {
+            return DocenteCursoData.GetAll();
+        }
+
+        public List<DocenteCurso> GetAllYearDoc(int idDoc, int year)
+        {
+            return DocenteCursoData.GetAllYearDoc(idDoc, year);
+        }
+
+        public DocenteCurso GetOne(int id_dictado)
+        {
+            return DocenteCursoData.GetOne(id_dictado);
+        }
     }
 }

@@ -58,5 +58,9 @@ namespace Business.Logic
             }
             return i;
         }
+        public List<Comision> GetAllByMateria(int idMateria)
+        {
+            return ComisionData.GetAllByMateria(idMateria);
+        }
     }
 }

@@ -16,10 +16,12 @@ namespace Business.Entities
         public int IDCurso { get => _IDCurso; set => _IDCurso = value; }
         public int IDDocente { get => _IDDocente; set => _IDDocente = value; }
 
-        public enum TiposCargo
-        {
-            Titular = 1,
-            Ayudante = 2
-        }
+        
+    }
+    public enum TiposCargo
+    {
+        Jefe = 0,
+        Docente = 1,
+        Ayudante = 2
     }
 }

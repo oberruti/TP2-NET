@@ -1,2 +1,248 @@
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\UI.Web.dll.config
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\UI.Web.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\UI.Web.pdb
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\csc.exe
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\csc.exe.config
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\csc.rsp
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\csi.exe
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\csi.exe.config
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\csi.rsp
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\System.Buffers.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\System.Memory.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\System.Numerics.Vectors.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\vbc.exe
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\vbc.exe.config
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\vbc.rsp
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\VBCSCompiler.exe
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Business.Entities.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Business.Logic.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Data.Database.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.ReportViewer.Design.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.ReportViewer.WebDesign.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.SqlServer.Types.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\EnvDTE.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.VisualStudio.Shell.Interop.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\stdole.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.VisualStudio.OLE.Interop.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.VisualStudio.TextManager.Interop.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.MSXML.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Business.Entities.pdb
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Business.Logic.pdb
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Data.Database.pdb
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\de\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\es\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\fr\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\it\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ja\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ko\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\pt\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ru\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\de\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\fr\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\it\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ja\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ko\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\pt\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ru\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\obj\Debug\UI.Web.csproj.AssemblyReference.cache
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\obj\Debug\RdlCompile.cache
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\obj\Debug\RdlCompile.compiled
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\obj\Debug\UI.Web.csproj.CoreCompileInputs.cache
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\obj\Debug\UI.Web.csproj.CopyComplete
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\obj\Debug\UI.Web.dll
+C:\Users\Albo\Desktop\Net-TP2-Grupo1-Master\TP2\UI.Web\obj\Debug\UI.Web.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.VisualStudio.Shell.Interop.dll
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\UI.Web.csproj.AssemblyReference.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\RdlCompile.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\RdlCompile.compiled
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\UI.Web.csproj.CoreCompileInputs.cache
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\UI.Web.dll.config
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\UI.Web.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\UI.Web.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\csc.exe
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\csc.exe.config
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\csc.rsp
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\csi.exe
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\csi.exe.config
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\csi.rsp
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.Managed.Core.targets
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\System.Buffers.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\System.Memory.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\System.Numerics.Vectors.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\vbc.exe
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\vbc.exe.config
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\vbc.rsp
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\VBCSCompiler.exe
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Business.Entities.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Business.Logic.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Data.Database.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.ReportViewer.Common.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.ReportViewer.Design.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.ReportViewer.WebDesign.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.ReportViewer.WebForms.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.SqlServer.Types.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\EnvDTE.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.ReportViewer.WinForms.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\stdole.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.VisualStudio.OLE.Interop.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.VisualStudio.TextManager.Interop.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.MSXML.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Business.Entities.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Business.Logic.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Data.Database.pdb
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\de\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\es\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\fr\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\it\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ja\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ko\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\pt\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ru\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\de\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\es\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\fr\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\it\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ja\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ko\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\pt\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ru\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\de\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\es\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\fr\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\it\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ja\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ko\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\pt\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ru\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.WebDesign.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\de\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\es\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\fr\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\it\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ja\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ko\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\pt\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ru\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.WebForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\de\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\fr\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\it\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ja\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ko\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\pt\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\UI.Web.csproj.CopyComplete
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\UI.Web.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Web\obj\Debug\UI.Web.pdb
