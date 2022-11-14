@@ -34,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
-      <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="itext.barcodes, Version=7.2.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.2.4\lib\net461\itext.barcodes.dll</HintPath>
@@ -66,6 +66,9 @@
     </Reference>
     <Reference Include="itext.svg, Version=7.2.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.2.4\lib\net461\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -168,14 +171,6 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CursosDS.cs">
-      <DependentUpon>CursosDS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CursosDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CursosDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DesktopForms\ComisionDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,12 +200,6 @@
     </Compile>
     <Compile Include="DesktopForms\EspecialidadDesktop.Designer.cs">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ReportePlanes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReportePlanes.Designer.cs">
-      <DependentUpon>ReportePlanes.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsPrincipales\Login.cs">
       <SubType>Form</SubType>
@@ -272,18 +261,19 @@
     <Compile Include="DesktopForms\PlanDesktop.Designer.cs">
       <DependentUpon>PlanDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlanesDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PlanesDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReporteCursos.cs">
+    <Compile Include="ReportesCursosDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReporteCursos.Designer.cs">
-      <DependentUpon>ReporteCursos.cs</DependentUpon>
+    <Compile Include="ReportesCursosDesktop.designer.cs">
+      <DependentUpon>ReportesCursosDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportesPlanesDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportesPlanesDesktop.designer.cs">
+      <DependentUpon>ReportesPlanesDesktop.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ABMListados\Especialidades.resx">
       <DependentUpon>Especialidades.cs</DependentUpon>
@@ -349,37 +339,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReporteCursos.rdlc" />
-    <EmbeddedResource Include="ReporteCursos.resx">
-      <DependentUpon>ReporteCursos.cs</DependentUpon>
+    <EmbeddedResource Include="ReportesCursosDesktop.resx">
+      <DependentUpon>ReportesCursosDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportePlanes.rdlc" />
-    <EmbeddedResource Include="ReportePlanes.resx">
-      <DependentUpon>ReportePlanes.cs</DependentUpon>
+    <EmbeddedResource Include="ReportesPlanesDesktop.resx">
+      <DependentUpon>ReportesPlanesDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="CursosDS.xsc">
-      <DependentUpon>CursosDS.xsd</DependentUpon>
-    </None>
-    <None Include="CursosDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CursosDS.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="CursosDS.xss">
-      <DependentUpon>CursosDS.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
-    <None Include="PlanesDS.xsc">
-      <DependentUpon>PlanesDS.xsd</DependentUpon>
-    </None>
-    <None Include="PlanesDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PlanesDS.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="PlanesDS.xss">
-      <DependentUpon>PlanesDS.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

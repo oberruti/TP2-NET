@@ -53,6 +53,7 @@
     <Compile Include="Adapters\PlanAdapter.cs" />
     <Compile Include="Adapters\UsuarioAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteCursoAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">

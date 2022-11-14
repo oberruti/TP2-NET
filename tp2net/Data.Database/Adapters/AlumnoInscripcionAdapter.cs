@@ -103,15 +103,9 @@ namespace Data.Database
             cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = alumno.ID;
             cmdSave.Parameters.Add("@id_alumno", SqlDbType.Int).Value = alumno.IdAlumno;
             cmdSave.Parameters.Add("@id_curso", SqlDbType.Int).Value = alumno.IdCurso;
-            cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = alumno.Condicion;
+            cmdSave.Parameters.Add("@condicion", SqlDbType.VarChar, 50).Value = "Cursando";
             cmdSave.Parameters.Add("@nota", SqlDbType.Int).Value = alumno.Nota;
             alumno.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
-
-            SqlCommand cmdUpdateCupo = new SqlCommand("UPDATE cursos SET cupo = cupo - 1 WHERE id_curso = @id_curso", SqlConn);
-
-            cmdUpdateCupo.Parameters.Add("id_curso", SqlDbType.Int).Value = alumno.IdCurso;
-
-            cmdUpdateCupo.ExecuteNonQuery();
 
             this.CloseConnection();
         }
@@ -224,5 +218,47 @@ namespace Data.Database
             return inscrip;
 
         }
-    }
+
+        public List<AlumnoInscripcion> GetInscripcionesByCursoId(int cursoId)
+        {
+            List<AlumnoInscripcion> alumnos = new List<AlumnoInscripcion>();
+
+            try
+            {
+                this.OpenConnection();
+
+                SqlCommand cmdAlumnos = new SqlCommand("select * from alumnos_inscripciones where id_curso=@id", SqlConn);
+                cmdAlumnos.Parameters.Add("@id", SqlDbType.Int).Value = cursoId;
+
+                SqlDataReader drAlumnos = cmdAlumnos.ExecuteReader();
+
+                while (drAlumnos.Read())
+                {
+                    AlumnoInscripcion alumno = new AlumnoInscripcion();
+
+                    alumno.ID = (int)drAlumnos["id_inscripcion"];
+                    alumno.IdAlumno = (int)drAlumnos["id_alumno"];
+                    alumno.IdCurso = (int)drAlumnos["id_curso"];
+                    alumno.Condicion = (string)drAlumnos["condicion"];
+                    alumno.Nota = (int)drAlumnos["nota"];
+
+                    alumnos.Add(alumno);
+                }
+
+                drAlumnos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de las inscripciones de alumnos.", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return alumnos;
+        }
+    } 
 }
+
+
