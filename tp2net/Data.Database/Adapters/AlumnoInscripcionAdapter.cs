@@ -63,6 +63,35 @@ namespace Data.Database
             return alumno;
         }
 
+        public List<AlumnoIscripcion> GetInscripcionesByCursoId(int cursoId)
+        {
+            List<AlumnoInscripcion> alumnos = new List<AlumnoInscripcion>();
+
+            this.OpenConnection();
+
+            SqlCommand cmdAlumnos = new SqlCommand("select * from alumnos_inscripciones where id_curso=@id", SqlConn);
+            cmdAlumnos.Parameters.Add("@id", SqlDbType.Int).Value = cursoId;
+
+            SqlDataReader drAlumnos = cmdAlumnos.ExecuteReader();
+
+            while (drAlumnos.Read())
+            {
+                AlumnoInscripcion alumno = new AlumnoInscripcion();
+
+                alumno.ID = (int)drAlumnos["id_inscripcion"];
+                alumno.IdAlumno = (int)drAlumnos["id_alumno"];
+                alumno.IdCurso = (int)drAlumnos["id_curso"];
+                alumno.Condicion = (string)drAlumnos["condicion"];
+                alumno.Nota = (int)drAlumnos["nota"];
+
+                alumnos.Add(alumno);
+            }
+
+            drAlumnos.Close();
+            this.CloseConnection();
+            return alumnos;
+        }
+
         public void Delete(int ID)
         {
             this.OpenConnection();

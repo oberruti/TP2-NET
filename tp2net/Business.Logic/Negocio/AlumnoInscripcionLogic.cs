@@ -24,6 +24,8 @@ namespace Business.Logic
 
         public AlumnoInscripcion GetOne(int id) { return AlumnoInscripcionData.GetOne(id); }
 
+        public List<AlumnoInscripcion> GetInscripcionesByCursoId(int cursoId) { return AlumnoInscripcionData.GetInscripcionesByCursoId(cursoId); }
+
         public void Save(AlumnoInscripcion ai) { AlumnoInscripcionData.Save(ai); }
 
         public List<AlumnoInscripcion> GetAllCurso(int idCurso)
