@@ -37,5 +37,7 @@ namespace Business.Logic
         {
             return AlumnoInscripcionData.GetAllAlum(idAlumno);
         }
+
+        public List<AlumnoInscripcion> GetInscripcionesByCursoId(int cursoId) { return AlumnoInscripcionData.GetInscripcionesByCursoId(cursoId); }
     }
 }

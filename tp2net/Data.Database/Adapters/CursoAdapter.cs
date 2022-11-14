@@ -118,6 +118,39 @@ namespace Data.Database
             return cur;
         }
 
+        public Curso GetOne(int idComision, int idMateria)
+        {
+            Curso cur = new Curso();
+
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCurso = new SqlCommand("SELECT * FROM cursos WHERE id_comision=@id_comision AND id_materia=@id_materia", SqlConn);
+                cmdCurso.Parameters.Add("@id_comision", SqlDbType.Int).Value = idComision;
+                cmdCurso.Parameters.Add("@id_materia", SqlDbType.Int).Value = idMateria;
+                SqlDataReader drCursos = cmdCurso.ExecuteReader();
+
+                while (drCursos.Read())
+                {
+                    cur.ID = (int)drCursos["id_curso"];
+                    cur.Año_calendario = (int)drCursos["anio_calendario"];
+                    cur.Descripcion = (string)drCursos["descripcion"];
+                    cur.Cupo = (int)drCursos["cupo"];
+                    cur.IDComision = (int)drCursos["id_comision"];
+                    cur.IDMateria = (int)drCursos["id_materia"];
+                }
+                drCursos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally { this.CloseConnection(); }
+
+            return cur;
+        }
+
         public void Delete(int ID)
         {
             try
@@ -407,6 +440,31 @@ namespace Data.Database
 
             return cursos;
 
+        }
+
+        public DataTable GetAllTabla(int idMateria, int idComision)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursos = new SqlCommand("SELECT id_curso AS 'ID Curso', c.anio_calendario AS 'Año Calendario', c.cupo AS 'Cupo', m.desc_materia as 'Materia', com.desc_comision AS 'Comision' FROM cursos c INNER JOIN materias m ON c.id_materia=m.id_materia INNER JOIN comisiones com ON com.id_comision=c.id_comision WHERE c.id_materia=@id_materia AND c.id_comision=@id_comision", SqlConn);
+                cmdCursos.Parameters.Add("id_materia", SqlDbType.Int).Value = idMateria;
+                cmdCursos.Parameters.Add("id_comision", SqlDbType.Int).Value = idComision;
+
+                SqlDataAdapter adaptador = new SqlDataAdapter(cmdCursos);
+
+                adaptador.Fill(dt);
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally { this.CloseConnection(); }
+
+            return dt;
         }
     }
 }

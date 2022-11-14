@@ -18,7 +18,7 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ReportePlanes());
+            //Application.Run(new ReportesCursosDesktop());
             
             Login login = new Login();
             PersonaLogic pl = new PersonaLogic();

@@ -98,7 +98,6 @@ D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.De
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\Microsoft.MSXML.dll
-D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\BouncyCastle.Crypto.xml
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\itext.barcodes.xml
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\itext.commons.xml
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\itext.forms.xml
@@ -164,7 +163,7 @@ D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.De
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.ReporteCursos.resources
-D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\RdlCompile.cache
-D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\RdlCompile.compiled
-D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.ReportePlanes.resources
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\itextsharp.dll
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\bin\Debug\itextsharp.xml
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.ReportesPlanesDesktop.resources
+D:\BACKUP\Escritorio\Facultad\Tecnologias de desarrollo IDE\TP2-NET\tp2net\UI.Desktop\obj\Debug\UI.Desktop.ReportesCursosDesktop.resources

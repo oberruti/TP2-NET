@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Business.Entities;
 using Data.Database;
-
+using System.Data;
 
 namespace Business.Logic
 {
@@ -29,9 +29,19 @@ namespace Business.Logic
             return CursoData.GetOne(id);
         }
 
+        public Curso GetOne(int idComision, int idMateria)
+        {
+            return CursoData.GetOne(idComision, idMateria);
+        }
+
         public List<Curso> GetAll()
         {
             return CursoData.GetAll();
+        }
+
+        public DataTable GetAllTabla(int idMateria, int idComision)
+        {
+            return CursoData.GetAllTabla(idMateria, idComision);
         }
 
         public void Delete(int id)
@@ -66,6 +76,8 @@ namespace Business.Logic
         {
             return CursoData.GetAllYearAlum(idAlumno, year);
         }
+
+
 
     }
 }
